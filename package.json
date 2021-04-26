@@ -5,5 +5,8 @@
   "license": "MIT",
   "devDependencies": {
     "sass": "^1.32.11"
-  }
+  },
+  "browserslist": [
+    "last 1 Chrome version"
+  ]
 }

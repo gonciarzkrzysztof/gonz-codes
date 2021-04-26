@@ -106,6 +106,41 @@ p:not(:last-child) {
   }
 }
 
+.changelog {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  .wrapper {
+    display: grid;
+    grid-gap: 4rem
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: .25em;
+    font-size: 2rem;
+  }
+}
+
+.commit {
+  display: flex;
+  align-items: center;
+
+  &:not(:empty):after {
+    content: '';
+    flex: 1;
+    height: .1em;
+    min-width: 2em;
+    margin: 0 .5em;
+    background-image: linear-gradient(to right, currentColor .1em, transparent .1em);
+    background-size: .5em;
+  }
+
+  &__date {
+    order: 10;
+  }
+}
+
 .projects {
   .wrapper {
     display: grid;

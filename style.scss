@@ -1,0 +1,157 @@
+@import "./reset.css";
+
+html {
+  font-size: 62.5%;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+  scroll-padding: 6rem;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+p:not(:last-child) {
+  margin-bottom: .25em;
+}
+
+[class*="heading--"] {
+  font-weight: bold;
+}
+
+.heading--1 {
+  font-size: 7.2rem;
+  text-transform: uppercase;
+  line-height: 1;
+}
+
+.heading--2 {
+  display: flex;
+  align-items: center;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+  line-height: 1.2;
+
+  &:after {
+    content: '';
+    flex: 1;
+    height: .1em;
+    min-height: 1px;
+    margin-left: 1em;
+    background-color: currentColor;
+  }
+}
+
+.wrapper {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.link {
+  display: inline-block;
+  color: inherit;
+  will-change: transform;
+
+  @media (hover: hover) {
+    & {
+      transition: transform 200ms;
+    }
+
+    &:hover {
+      transform: translateY(-.2em);
+    }
+  }
+}
+
+.header {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: bold;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+  }
+}
+
+.intro {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  .wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  &__heading {
+    margin-bottom: .2em;
+  }
+
+  &__lead {
+    font-size: 2rem;
+  }
+}
+
+.projects {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 28rem;
+    grid-gap: 6rem 4rem;
+    align-items: start;
+  }
+
+  &__nav {
+    order: 10;
+    position: sticky;
+    top: 6rem;
+    font-size: 1.6rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-gap: 6rem;
+  }
+}
+
+.project {
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  grid-gap: 4rem;
+
+  &__title {
+    grid-column: span 2;
+  }
+
+  .carousel {
+    grid-column: span 2;
+  }
+}
+
+.footer {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 1.6rem;
+
+  .wrapper {
+    display: flex;
+  }
+
+  &__content {
+    width: 28rem;
+    margin-left: auto;
+  }
+}

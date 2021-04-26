@@ -1,5 +1,11 @@
 @import "./reset.css";
 
+@keyframes header-title-translate {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
 html {
   font-size: 62.5%;
   -webkit-font-smoothing: antialiased;
@@ -80,10 +86,25 @@ p:not(:last-child) {
   padding-bottom: 2rem;
 
   &__title {
+    width: 50em;
+    animation: header-title-translate 20s linear infinite;
     font-size: 1.6rem;
     font-weight: bold;
     letter-spacing: .05em;
+    text-shadow:
+      -200em 0 currentColor,
+      -150em 0 currentColor,
+      -100em 0 currentColor,
+      -50em 0 currentColor,
+      50em 0 currentColor,
+      100em 0 currentColor,
+      150em 0 currentColor,
+      200em 0 currentColor,
+      250em 0 currentColor,
+      300em 0 currentColor;
     text-transform: uppercase;
+    will-change: transform;
+
   }
 }
 

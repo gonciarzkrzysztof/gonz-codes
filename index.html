@@ -5,38 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>gonz.codes – portfolio of Krzysztof Gonciarz, Design-focused Web Developer.</title>
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.scss">
   </head>
-  <body>
+  <body class="layout--loose">
     <header class="header">
       <div class="wrapper">
         <h1 class="header__title">gonz.codes</h1>
       </div>
     </header>
 
-    <main class="main">
-      <section class="intro">
-        <div class="wrapper">
+    <main class="main layout--normal">
+      <div class="wrapper layout--leading-wide">
+        <section class="intro layout--leading-narrow">
           <img srcset="./assets/japa@2x.jpg 2x, ./assets/japa.jpg 1x" src="./assets/japa.jpg" width="280" height="356" alt="Me, Gonz.">
 
           <header class="intro__header">
             <h2 class="intro__heading heading--1">Hey there,<br> Gonz here</h2>
             <p class="intro__lead">I don't want to miss a chance so I built this website in a hurry</p>
           </header>
-        </div>
-      </section>
+        </section>
 
-      <section class="projects">
-        <div class="wrapper">
-          <nav class="projects__nav">
-            <a class="link" href="#netguru">netguru.com</a><br>
-            <a class="link" href="#dawid-podsiadlo">dawidpodsiadlo.pl</a><br>
-            <a class="link" href="#audioriver">audioriver.pl</a><br>
-          </nav>
+        <nav class="nav">
+          <a class="link" href="#netguru">netguru.com</a><br>
+          <a class="link" href="#dawid-podsiadlo">dawidpodsiadlo.pl</a><br>
+          <a class="link" href="#audioriver">audioriver.pl</a><br>
+        </nav>
 
-          <div class="projects__list">
-            <article class="projects__item project" id="netguru">
+        <section class="projects">
+          <div class="projects__list layout--column">
+            <article class="projects__item project layout--leading-narrow" id="netguru">
               <h2 class="project__title heading--2">
                 <a class="link" href="http://www.netguru.com">Netguru.com</a>
               </h2>
@@ -57,7 +55,7 @@
               </div>
             </article>
 
-            <article class="projects__item project" id="dawid-podsiadlo">
+            <article class="projects__item project layout--leading-narrow" id="dawid-podsiadlo">
               <h2 class="project__title heading--2">
                 <a class="link" href="http://www.dawidpodsiadlo.pl">Dawidpodsiadlo.pl</a>
               </h2>
@@ -78,7 +76,7 @@
               </div>
             </article>
 
-            <article class="projects__item project" id="audioriver">
+            <article class="projects__item project layout--leading-narrow" id="audioriver">
               <h2 class="project__title heading--2">
                 <a class="link" href="http://www.audioriver.pl">Audioriver.pl</a>
               </h2>
@@ -99,27 +97,25 @@
               </div>
             </article>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section class="changelog" data-changelog>
-        <div class="wrapper">
+        <section class="changelog layout--dense" data-changelog>
           <h2 class="changelog__heading heading--2">Changelog</h2>
 
           <ul class="changelog__list" data-changelog-list>
             <li class="changelog__item commit" data-changelog-item>
-              <p class="commit__message">
-                 <a class="link" data-changelog-message></a>
-              </p>
+              <span class="commit__message">
+                <a class="link" data-changelog-message></a>
+              </span>
               <time class="commit__date" data-changelog-date></time>
             </li>
           </ul>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
     <footer class="footer">
-      <div class="wrapper">
+      <div class="wrapper layout--leading-wide">
         <div class="footer__content">
           <a class="link" href="mailto:gonciarz.krzysztof@gmail.com">gonciarz.krzysztof@gmail.com</a><br>
           <a class="link" href="http://linkedin.com/in/krzysztof-gonciarz">linkedin.com/in/krzysztof-gonciarz</a><br>

@@ -19,7 +19,7 @@ async function populateCommits() {
 
       message.innerText = commit.commit.message;
       message.href = commit.html_url;
-      date.innerText = commit.commit.author.date.split(/[A-Za-z]/g).filter(Boolean).join(', ');
+      date.innerText = getTimeRange(commit.commit.author.date);
       date.dateTime = commit.commit.author.date;
     })
 
@@ -28,3 +28,25 @@ async function populateCommits() {
 }
 
 populateCommits()
+
+function getTimeRange(date) {
+  let parsedDate = Date.parse(date);
+  let now = Date.now();
+  let timestampRange = now - parsedDate;
+  let timeRange = timestampRange / 1000 / 60 / 60 / 24 / 7;
+
+  if (Math.floor(timeRange)) {
+    timeRange = Math.floor(timeRange);
+    return `${timeRange} week${timeRange > 1 ? 's' : ''} ago`;
+  } else if (Math.floor(timeRange * 7)) {
+    timeRange *= 7;
+    timeRange = Math.floor(timeRange);
+    return `${timeRange} day${timeRange > 1 ? 's' : ''} ago`;
+  } else if(Math.floor(timeRange * 7 * 24)) {
+    timeRange *= 7 * 24;
+    timeRange = Math.floor(timeRange);
+    return `${timeRange} hour${timeRange > 1 ? 's' : ''} ago`;
+  } else {
+    return `<1 hour ago`;
+  }
+}

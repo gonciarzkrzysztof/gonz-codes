@@ -1,0 +1,35 @@
+[class*="layout--"] {
+  display: grid;
+  grid-gap: var(--gap-vertical) var(--gap-horizontal);
+  align-items: start;
+}
+
+.layout {
+  &--dense {
+    grid-gap: 2rem var(--gap-horizontal);
+  }
+
+  &--normal {
+    --gap-vertical: inherit;
+  }
+
+  &--loose {
+    grid-gap: 6rem var(--gap-horizontal);
+  }
+
+  &--leading-wide {
+    grid-template-columns: 1fr var(--layout-narrow-part);
+
+    @media #{$breakpoint-tablet} {
+      grid-template-columns: auto;
+    }
+  }
+
+  &--leading-narrow {
+    grid-template-columns: var(--layout-narrow-part) 1fr;
+
+    @media #{$breakpoint-tablet} {
+      grid-template-columns: auto;
+    }
+  }
+}

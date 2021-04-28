@@ -1,0 +1,20 @@
+.project {
+  &__title {
+    grid-column: 1 / -1;
+  }
+
+  &__time,
+  &__technologies {
+    font-family: var(--font-family-mono);
+  }
+
+  &__description {
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .carousel {
+    grid-column: 1 / -1;
+  }
+}

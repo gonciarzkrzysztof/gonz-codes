@@ -1,0 +1,33 @@
+.intro {
+  --gap-vertical: 1rem;
+  grid-column: 1 / -1;
+
+  @media screen and (max-width: 767px) {
+    --gap-vertical: 3rem;
+  }
+
+  &__heading,
+  &__lead {
+    grid-column-start: 2;
+  }
+
+  &__heading {
+    align-self: end;
+
+    @media screen and (max-width: 767px) {
+      grid-column: span 2;
+    }
+  }
+
+  &__lead {
+    font-size: var(--font-size-larger);
+  }
+
+  &__photo {
+    grid-row: -1 / span 2;
+
+    @media screen and (max-width: 767px) {
+      grid-area: auto;
+    }
+  }
+}

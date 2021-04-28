@@ -1,0 +1,13 @@
+.changelog {
+  &__list {
+    --gap-vertical: .25em;
+
+    @media #{$breakpoint-tablet} {
+      --gap-vertical: .5em;
+    }
+
+    @media #{$breakpoint-tablet} {
+      --gap-vertical: 1em;
+    }
+  }
+}

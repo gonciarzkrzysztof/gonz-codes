@@ -1,0 +1,35 @@
+.link {
+  --width: 1.2ch;
+
+  display: inline-flex;
+  margin-left: calc(-1 * var(--width));
+  padding-left: var(--width);
+  color: inherit;
+  overflow: hidden;
+
+  @media (hover: hover) {
+    &,
+    &:before {
+      transition: transform 200ms;
+      will-change: transform;
+    }
+
+    &:hover,
+    &:focus {
+      &,
+      &:before {
+        transform: translateX(var(--width));
+      }
+    }
+  }
+
+  &:before {
+    content: '>';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    width: var(--width);
+    font-weight: normal;
+    text-decoration: none;
+  }
+}

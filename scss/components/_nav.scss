@@ -1,0 +1,10 @@
+.nav {
+  grid-area: 2 / 2 / auto / -1;
+  position: sticky;
+  top: var(--gap-vertical);
+
+  @media #{$breakpoint-tablet} {
+    @include visually-hidden;
+    grid-area: auto;
+  }
+}

@@ -1,0 +1,14 @@
+.footer {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+
+  .wrapper {
+    @media #{$breakpoint-tablet} {
+      grid-template-columns: auto;
+    }
+  }
+
+  &__content {
+    grid-column-end: -1;
+  }
+}

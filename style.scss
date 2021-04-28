@@ -79,10 +79,6 @@ strong {
   font-weight: bold;
 }
 
-p:not(:last-child) {
-  margin-bottom: 1em;
-}
-
 [class*="layout--"] {
   display: grid;
   grid-gap: var(--gap-vertical) var(--gap-horizontal);
@@ -190,8 +186,8 @@ p:not(:last-child) {
 }
 
 .header {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   &__title {
     --width: 50rem;
@@ -276,6 +272,17 @@ p:not(:last-child) {
     grid-column: 1 / -1;
   }
 
+  &__time,
+  &__technologies {
+    font-family: var(--font-family-mono);
+  }
+
+  &__description {
+    p:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
   .carousel {
     grid-column: 1 / -1;
   }
@@ -339,8 +346,8 @@ p:not(:last-child) {
 }
 
 .footer {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 
   .wrapper {
     @media screen and (max-width: 1023px) {

@@ -1,10 +1,12 @@
-import Component from './Component'
-import Changelog from './components/Changelog'
+import Component from './Component';
+import Changelog from './components/Changelog';
+import LoadingAnimation from './components/LoadingAnimation';
 
 class App {
   constructor() {
     this.components = {
-      Changelog
+      Changelog,
+      LoadingAnimation
     }
 
     this.run()
@@ -15,7 +17,7 @@ class App {
 
     [...components].map(component => {
       const name = component.dataset.component;
-      const className = name.charAt(0).toUpperCase() + name.slice(1);
+      const className = (name.charAt(0).toUpperCase() + name.slice(1)).replace(/-./g, char => char.toUpperCase()[1]);
       new this.components[className](component);
     })
   }

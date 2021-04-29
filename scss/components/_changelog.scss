@@ -1,6 +1,11 @@
 .changelog {
+  --animation-delay: calc(var(--duration-fast) + var(--duration-default));
+
   &__list {
     --gap-vertical: .25em;
+
+    animation: opacity var(--duration-slow) var(--animation-delay) backwards;
+    will-change: opacity;
 
     @media #{$breakpoint-tablet} {
       --gap-vertical: .5em;

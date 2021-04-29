@@ -1,4 +1,6 @@
 .footer {
+  --animation-delay: calc(var(--duration-slow) + var(--duration-fast));
+
   padding-top: 1rem;
   padding-bottom: 1rem;
 
@@ -10,5 +12,7 @@
 
   &__content {
     grid-column-end: -1;
+    animation: opacity var(--duration-default) var(--animation-delay) backwards;
+    will-change: opacity;
   }
 }

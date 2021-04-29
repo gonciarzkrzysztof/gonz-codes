@@ -1,6 +1,16 @@
 .project {
+  --animation-delay: calc(var(--duration-fast) + var(--duration-default));
+
   &__title {
     grid-column: 1 / -1;
+  }
+
+  &__info {
+    animation-name: opacity, translateY;
+    animation-duration: var(--duration-default);
+    animation-delay: calc(var(--animation-delay) + 0ms);
+    animation-fill-mode: backwards;
+    will-change: opacity, transform;
   }
 
   &__time,
@@ -9,6 +19,9 @@
   }
 
   &__description {
+    animation: opacity var(--duration-slow) var(--ease-out) var(--animation-delay) backwards;
+    will-change: opacity;
+
     p:not(:last-child) {
       margin-bottom: 1em;
     }
@@ -16,5 +29,17 @@
 
   .carousel {
     grid-column: 1 / -1;
+  }
+
+  .photo {
+    &__img {
+      transform-origin: top;
+      animation: opacity, scale;
+      animation-delay: var(--animation-delay);
+      animation-duration: var(--duration-slow);
+      animation-timing-function: ease, var(--ease-out);
+      animation-fill-mode: backwards;
+      will-change: opacity, transform;
+    }
   }
 }

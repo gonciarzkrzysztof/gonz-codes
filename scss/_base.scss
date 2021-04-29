@@ -21,8 +21,16 @@
   --line-height-heading-1: 1;
   --line-height-heading-2: 1.2;
 
-  --wrapper-max-width: 120rem;
-  --wrapper-padding: 3rem;
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-light: #80808010;
+
+  --duration-fast: 400ms;
+  --duration-default: 800ms;
+  --duration-slow: 1600ms;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
 
   @media #{$breakpoint-tablet} {
     --gap-horizontal: 4rem;

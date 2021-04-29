@@ -15,15 +15,23 @@
       </div>
     </header>
 
-    <main class="main layout--normal">
+    <main class="main loading-animation layout--normal" data-component="loading-animation">
       <div class="wrapper layout--leading-wide">
         <section class="intro layout--leading-narrow">
+<<<<<<< HEAD
           <img srcset="./assets/japa@2x.jpg 2x, ./assets/japa.jpg 1x" src="./assets/japa.jpg" width="280" height="356" alt="Me, Gonz.">
 
           <header class="intro__header">
             <h2 class="intro__heading heading--1">Hey there,<br> Gonz here</h2>
             <p class="intro__lead">I don't want to miss a chance so I built this website in a hurry</p>
           </header>
+=======
+          <h2 class="intro__heading heading--1">Hey Spotify!<br> Gonz here</h2>
+          <figure class="photo">
+            <img class="photo__img" srcset="./assets/japa@2x.jpg 2x, ./assets/japa.jpg 1x" src="./assets/japa.jpg" width="390" height="495" alt="Me, Gonz." loading="lazy">
+          </figure>
+          <p class="intro__lead">I don't want to miss a chance so I built this website in a hurry</p>
+>>>>>>> 5f8ece3... animations
         </section>
 
         <nav class="nav">
@@ -38,7 +46,7 @@
           <div class="projects__list layout--column">
             <article class="projects__item project layout--leading-narrow" id="netguru">
               <h2 class="project__title heading--2">
-                <a class="link" href="http://www.netguru.com">Netguru.com</a>
+                <a class="heading--2__text link" href="http://www.netguru.com">Netguru.com</a>
               </h2>
 
               <div class="project__info">
@@ -53,13 +61,15 @@
               </div>
 
               <div class="carousel">
-                <img class="carousel__item" src="/assets/netguru-00.png">
+                <figure class="photo">
+                  <img class="photo__img" src="/assets/netguru-00.png" width="860" height="566" loading="lazy">
+                </figure>
               </div>
             </article>
 
             <article class="projects__item project layout--leading-narrow" id="dawid-podsiadlo">
               <h2 class="project__title heading--2">
-                <a class="link" href="http://www.dawidpodsiadlo.pl">Dawidpodsiadlo.pl</a>
+                <a class="heading--2__text link" href="http://www.dawidpodsiadlo.pl">Dawidpodsiadlo.pl</a>
               </h2>
 
               <div class="project__info">
@@ -74,13 +84,15 @@
               </div>
 
               <div class="carousel">
-                <img class="carousel__item" src="/assets/podsiadlo-00.png">
+                <figure class="photo">
+                  <img class="photo__img" src="/assets/podsiadlo-00.png" width="860" height="472" loading="lazy">
+                </figure>
               </div>
             </article>
 
             <article class="projects__item project layout--leading-narrow" id="audioriver">
               <h2 class="project__title heading--2">
-                <a class="link" href="http://www.audioriver.pl">Audioriver.pl</a>
+                <a class="heading--2__text link" href="http://www.audioriver.pl">Audioriver.pl</a>
               </h2>
 
               <div class="project__info">
@@ -95,14 +107,18 @@
               </div>
 
               <div class="carousel">
-                <img class="carousel__item" src="/assets/audioriver-00.png">
+                <figure class="photo">
+                  <img class="photo__img" src="/assets/audioriver-00.png" width="860" height="472" loading="lazy">
+                </figure>
               </div>
             </article>
           </div>
         </section>
 
         <section class="changelog layout--dense" id="changelog" data-component="changelog">
-          <h2 class="changelog__heading heading--2">Changelog</h2>
+          <h2 class="changelog__heading heading--2">
+            <span class="heading--2__text">Changelog</span>
+          </h2>
 
           <ul class="changelog__list layout--normal" data-changelog-list>
             <li class="changelog__item commit" data-changelog-item>
@@ -116,7 +132,7 @@
       </div>
     </main>
 
-    <footer class="footer">
+    <footer class="footer loading-animation" data-component="loading-animation">
       <div class="wrapper layout--leading-wide">
         <div class="footer__content">
           <a class="link" href="mailto:gonciarz.krzysztof@gmail.com">gonciarz.krzysztof@gmail.com</a><br>

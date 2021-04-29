@@ -4,6 +4,7 @@
 
   &__title {
     --width: 50rem;
+    --animation-translateX-from: 100%;
 
     $text-shadow: '';
     @for $index from 1 through 10 {
@@ -13,7 +14,7 @@
     }
 
     width: var(--width);
-    animation: header-title-translate 10s linear infinite;
+    animation: translateX 10s linear infinite;
     font-weight: bold;
     letter-spacing: .05em;
     text-shadow: unquote($text-shadow);

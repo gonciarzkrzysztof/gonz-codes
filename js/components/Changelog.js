@@ -56,7 +56,9 @@ class Changelog extends Component {
 
     if (properTimeUnit != undefined) {
       const { name, multiplier } = properTimeUnit;
-      return `${Math.floor(timeRange * multiplier)} ${name}${timeRange > 1 ? 's' : ''} ago`;
+
+      timeRange = Math.floor(timeRange * multiplier);
+      return `${timeRange} ${name}${timeRange > 1 ? 's' : ''} ago`;
     } else {
       return '<1 hour ago';
     }

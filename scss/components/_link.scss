@@ -1,16 +1,18 @@
 .link {
-  --width: 1.2ch;
+  --link-marker-width: 1.2ch;
+  --link-translateX: var(--link-marker-width);
+  --link-translateY: 0;
 
   display: inline-flex;
-  margin-left: calc(-1 * var(--width));
-  padding-left: var(--width);
+  margin-left: calc(-1 * var(--link-marker-width));
+  padding-left: var(--link-marker-width);
   color: inherit;
   overflow: hidden;
 
   @media (hover: hover) {
     &,
     &:before {
-      transition: transform 200ms;
+      transition: transform var(--duration-blink);
       will-change: transform;
     }
 
@@ -18,7 +20,7 @@
     &:focus {
       &,
       &:before {
-        transform: translateX(var(--width));
+        transform: translateX(var(--link-translateX)) translateY(var(--link-translateY));
       }
     }
   }
@@ -28,7 +30,7 @@
     position: absolute;
     top: 0;
     right: 100%;
-    width: var(--width);
+    width: var(--link-marker-width);
     font-weight: normal;
     text-decoration: none;
   }

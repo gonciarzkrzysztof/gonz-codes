@@ -24,6 +24,7 @@
   --color-black: #000000;
   --color-white: #ffffff;
   --color-light: #80808010;
+  --color-dark: #2b2b2b;
 
   --duration-blink: 200ms;
   --duration-fast: 400ms;
@@ -48,11 +49,18 @@
 }
 
 html {
+  background-color: var(--color-white);
+  color: var(--color-black);
   font-size: 62.5%;
   font-size: calc(.5 * 62.5% + .5 * (100vw / 144));
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
   scroll-padding: var(--gap-vertical);
+
+  @media (prefers-color-scheme: dark) {
+    background-color: var(--color-dark);
+    color: var(--color-white);
+  }
 }
 
 body {

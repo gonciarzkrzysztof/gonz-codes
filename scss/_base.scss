@@ -69,3 +69,7 @@ img {
 strong {
   font-weight: bold;
 }
+
+.visually-hidden {
+  @include visually-hidden;
+}

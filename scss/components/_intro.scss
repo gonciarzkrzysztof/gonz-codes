@@ -12,9 +12,15 @@
   }
 
   &__heading {
+    --animation-translateY-from: 5rem;
+
     align-self: end;
-    animation: opacity var(--duration-default) backwards;
-    will-change: opacity;
+    animation-name: opacity, translateY;
+    animation-duration: var(--duration-default);
+    animation-delay: 0ms, var(--duration-default);
+    animation-fill-mode: backwards;
+    animation-timing-function: ease, var(--ease-in-out);
+    will-change: opacity, transform;
 
     @media screen and (max-width: 767px) {
       grid-column: span 2;

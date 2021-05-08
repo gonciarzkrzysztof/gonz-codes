@@ -22,6 +22,11 @@
     animation-timing-function: ease, var(--ease-in-out);
     will-change: opacity, transform;
 
+    @media screen and (max-width: 1023px) {
+      animation-name: opacity;
+      will-change: opacity;
+    }
+
     @media screen and (max-width: 767px) {
       grid-column: span 2;
     }
@@ -33,6 +38,11 @@
     animation-duration: var(--duration-default);
     animation-fill-mode: backwards;
     will-change: opacity, transform;
+
+    @media screen and (max-width: 1023px) {
+      animation-name: opacity;
+      will-change: opacity;
+    }
   }
 
   .photo {

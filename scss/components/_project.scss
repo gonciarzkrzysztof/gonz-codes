@@ -11,6 +11,11 @@
     animation-delay: var(--animation-delay);
     animation-fill-mode: backwards;
     will-change: opacity, transform;
+
+    @media screen and (max-width: 1023px) {
+      animation-name: opacity;
+      will-change: opacity;
+    }
   }
 
   &__time,

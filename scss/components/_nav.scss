@@ -2,6 +2,8 @@
   --animation-delay: calc(var(--duration-slow) + var(--duration-fast));
 
   grid-area: 2 / 2 / auto / -1;
+  display: flex;
+  flex-direction: column;
   position: sticky;
   top: var(--gap-vertical);
   animation: opacity var(--duration-default) var(--animation-delay) backwards;

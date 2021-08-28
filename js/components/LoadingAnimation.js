@@ -1,19 +1,16 @@
-import Component from '../Component';
+function LoadingAnimation(props) {
+  const { useState, useEffect } = React;
+  const [ isRunningClassName, setIsRunningClassName ] = useState('');
 
-class LoadingAnimation extends Component {
-  constructor(comp) {
-    super(comp);
+  useEffect(() => {
+    setIsRunningClassName('is-loading-animation-running')
+  })
 
-    this.handleEvents();
-  }
-
-  handleWindowLoad() {
-    this.el.classList.add('is-loading-animation-running');
-  }
-
-  handleEvents() {
-    window.addEventListener('load', () => this.handleWindowLoad())
-  }
+  return (
+    <div className={`loading-animation ${ isRunningClassName } ${ props.className || '' }`}>
+      { props.children }
+    </div>
+  )
 }
 
 export default LoadingAnimation;

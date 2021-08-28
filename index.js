@@ -1,3 +1,6 @@
 import App from './js/App';
 
-new App();
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root')
+);

@@ -4,138 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>gonz.codes – portfolio of Krzysztof Gonciarz, Design-focused Web Developer.</title>
+    <meta name="description" content="Design-focused web developer. 5+ years of professional experience, 50+ commercial RWD projects and several awards for my works. Fan of beautiful and usable things, leader and problem solver with can-do attitude.">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;800&family=Roboto+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.scss">
+    <link rel="icon" href="/favicons/favicon.ico">
+    <link rel="icon" href="/favicons/favicon.png" type="image/png" sizes="32x32">
+    <link rel="apple-touch-icon" href="/favicons/favicon-180.png">
+    <link rel="manifest" href="manifest.webmanifest">
   </head>
-  <body class="layout--loose">
-    <header class="header">
-      <div class="wrapper">
-        <h1 class="header__title">gonz.codes</h1>
-      </div>
-    </header>
 
-    <main class="main loading-animation layout--normal" data-component="loading-animation">
-      <div class="wrapper layout--leading-wide">
-        <section class="intro layout--leading-narrow">
-          <img srcset="./assets/japa@2x.jpg 2x, ./assets/japa.jpg 1x" src="./assets/japa.jpg" width="280" height="356" alt="Me, Gonz.">
+  <body>
+    <div id="root" class="layout--loose"></div>
 
-          <header class="intro__header">
-            <h2 class="intro__heading heading--1">Hey there,<br> Gonz here</h2>
-            <p class="intro__lead">I don't want to miss a chance so I built this website in a hurry</p>
-          </header>
-        </section>
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 
-        <nav class="nav">
-          <a class="link" href="#netguru">netguru.com</a><br>
-          <a class="link" href="#dawid-podsiadlo">dawidpodsiadlo.pl</a><br>
-          <a class="link" href="#audioriver">audioriver.pl</a><br>
-          <br>
-          <a class="link" href="#changelog">Changelog</a>
-        </nav>
-
-        <section class="projects">
-          <div class="projects__list layout--column">
-            <article class="projects__item project layout--leading-narrow" id="netguru">
-              <h2 class="project__title heading--2">
-                <a class="heading--2__text link" href="http://www.netguru.com">Netguru.com</a>
-              </h2>
-
-              <div class="project__info">
-                <p>For <a class="link" href="http://www.netguru.com">Netguru</a></p>
-                <p class="project__time">2019 – Now</p>
-                <p class="project__technologies">JS/ES6+, CSS, HubSpot</p>
-              </div>
-
-              <div class="project__description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              </div>
-
-              <div class="carousel">
-                <figure class="photo">
-                  <img class="photo__img" src="/assets/netguru-00.png" width="860" height="566" loading="lazy">
-                </figure>
-              </div>
-            </article>
-
-            <article class="projects__item project layout--leading-narrow" id="dawid-podsiadlo">
-              <h2 class="project__title heading--2">
-                <a class="heading--2__text link" href="http://www.dawidpodsiadlo.pl">Dawidpodsiadlo.pl</a>
-              </h2>
-
-              <div class="project__info">
-                <p>With <a class="link" href="http://www.owlsdepartment.com">Owls Department</a></p>
-                <p class="project__time">2019 – Now</p>
-                <p class="project__technologies">JS/ES6+, CSS, HubSpot</p>
-              </div>
-
-              <div class="project__description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              </div>
-
-              <div class="carousel">
-                <figure class="photo">
-                  <img class="photo__img" src="/assets/podsiadlo-00.png" width="860" height="472" loading="lazy">
-                </figure>
-              </div>
-            </article>
-
-            <article class="projects__item project layout--leading-narrow" id="audioriver">
-              <h2 class="project__title heading--2">
-                <a class="heading--2__text link" href="http://www.audioriver.pl">Audioriver.pl</a>
-              </h2>
-
-              <div class="project__info">
-                <p>For <a class="link" href="http://www.audioriver.pl">Audioriver</a></p>
-                <p class="project__time">2019 – Now</p>
-                <p class="project__technologies">JS/ES6+, CSS, HubSpot</p>
-              </div>
-
-              <div class="project__description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-              </div>
-
-              <div class="carousel">
-                <figure class="photo">
-                  <img class="photo__img" src="/assets/audioriver-00.png" width="860" height="472" loading="lazy">
-                </figure>
-              </div>
-            </article>
-          </div>
-        </section>
-
-        <section class="changelog layout--dense" id="changelog" data-component="changelog">
-          <h2 class="changelog__heading heading--2">
-            <span class="heading--2__text">Changelog</span>
-          </h2>
-
-          <ul class="changelog__list layout--normal" data-changelog-list>
-            <li class="changelog__item commit" data-changelog-item>
-              <span class="commit__message">
-                <a class="link" data-changelog-message></a>
-              </span>
-              <time class="commit__date" data-changelog-date></time>
-            </li>
-          </ul>
-        </section>
-      </div>
-    </main>
-
-    <footer class="footer loading-animation" data-component="loading-animation">
-      <div class="wrapper layout--leading-wide">
-        <div class="footer__content">
-          <a class="link" href="mailto:gonciarz.krzysztof@gmail.com">gonciarz.krzysztof@gmail.com</a><br>
-          <a class="link" href="http://linkedin.com/in/krzysztof-gonciarz">linkedin.com/in/krzysztof-gonciarz</a><br>
-          <a class="link" href="tel:48664988164">+48 664 988 164</a><br>
-          <br>
-          <small class="footer__copyrights">&copy;2021</small>
-        </div>
-      </div>
-    </footer>
-
-    <script src="./index.js"></script>
+    <!-- Load our React component. -->
+    <script src="index.js"></script>
   </body>
 </html>

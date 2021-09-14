@@ -21,6 +21,8 @@
   &__time,
   &__technologies {
     font-family: var(--font-family-mono);
+    font-size: var(--font-size-small);
+    line-height: calc(1.6 * var(--line-height-default) / 1.4);
   }
 
   .copy {

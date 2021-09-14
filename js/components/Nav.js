@@ -15,7 +15,7 @@ function Nav(props) {
         const slug = slugify(entry);
 
         return (
-          entry !== "" && <Link href={ `#${slug}` } key={ slug }>{ entry }</Link>
+          entry !== "" ? <Link href={ `#${slug}` } key={ slug }>{ entry }</Link> : <br/>
         )
       })}
     </nav>

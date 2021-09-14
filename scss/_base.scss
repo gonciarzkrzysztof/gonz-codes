@@ -10,6 +10,7 @@
   --layout-narrow-part: 28rem;
 
   --font-size-default: max(1.6rem, 14px);
+  --font-size-small: max(1.4rem, 14px);
   --font-size-larger: max(2rem, 14px);
   --font-size-heading-1: max(7.2rem, 14px);
   --font-size-heading-2: max(2.4rem, 14px);
@@ -76,6 +77,17 @@ img {
 
 strong {
   font-weight: bold;
+}
+
+button {
+  display: inline-block;
+  width: fit-content;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  color: inherit;
+  font: inherit;
 }
 
 .visually-hidden {

@@ -3,7 +3,8 @@ import Commit from './Commit';
 
 function Changelog() {
   const { useState, useEffect } = React;
-  const [commits, setCommits] = useState([])
+  const [commits, setCommits] = useState([]);
+  const [isListExpanded, setIsListExpanded] = useState(false);
 
   useEffect(() => {
     async function fetchData() {
@@ -20,13 +21,15 @@ function Changelog() {
       <Heading className="changelog__heading heading--2" tag="h2">Changelog</Heading>
 
       <ul className="changelog__list layout--normal">
-        {commits.map(commit => {
+        {(isListExpanded ? commits : commits.slice(0, 5)).map(commit => {
           return (
             <Commit commit={commit} tag="li" key={commit.sha} />
           )
         }
         )}
       </ul>
+
+      { !isListExpanded && <button class="changelog__button" onClick={() => setIsListExpanded(true)}>Show all</button> }
     </section>
   )
 }

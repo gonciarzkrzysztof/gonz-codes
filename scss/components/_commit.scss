@@ -32,7 +32,7 @@
     background-size: .5em .1em;
 
     @media #{$breakpoint-tablet} {
-      margin-left: 0;
+      content: none;
     }
   }
 }

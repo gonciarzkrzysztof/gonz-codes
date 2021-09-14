@@ -13,7 +13,7 @@ function Project(props) {
       </Heading>
 
       <div className="project__info">
-        <p>With <Link href={ project.company.link }>{ project.company.name }</Link></p>
+        <p className="project__company">With <Link href={ project.company.link }>{ project.company.name }</Link></p>
         <p className="project__time">{ project.time }</p>
         <p className="project__technologies">{ project.technologies }</p>
       </div>

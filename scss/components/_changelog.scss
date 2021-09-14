@@ -1,10 +1,13 @@
 .changelog {
   --animation-delay: calc(var(--duration-fast) + var(--duration-default));
 
+  &__list,
+  &__button {
+    animation: opacity var(--duration-slow) var(--animation-delay) backwards;
+  }
+
   &__list {
     --gap-vertical: .25em;
-
-    animation: opacity var(--duration-slow) var(--animation-delay) backwards;
     will-change: opacity;
 
     @media #{$breakpoint-tablet} {
@@ -13,6 +16,58 @@
 
     @media #{$breakpoint-tablet} {
       --gap-vertical: 1em;
+    }
+  }
+
+  &__button {
+    --changelog-button-padding: 2ch;
+    --changelog-button-final-shift: -1ch;
+
+    position: relative;
+    padding: 0 var(--changelog-button-padding);
+    font-family: var(--font-family-mono);
+    font-weight: 600;
+    text-transform: lowercase;
+
+    @media (hover: hover) {
+      will-change: opacity, transform;
+
+      &,
+      &:before,
+      &:after {
+        transition: transform var(--duration-blink);
+      }
+
+      &:hover {
+        transform: translateX(calc(-1 * var(--changelog-button-final-shift)));
+
+        &:before {
+          transform: translateX(var(--changelog-button-final-shift));
+        }
+
+        &:after {
+          transform: translateX(calc(-1 * var(--changelog-button-final-shift)));
+        }
+      }
+    }
+
+
+    &:before,
+    &:after {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: -5;
+    }
+
+    &:before {
+      content: '[    ';
+      left: 0;
+    }
+
+    &:after {
+      content: '    ]';
+      right: 0;
     }
   }
 }

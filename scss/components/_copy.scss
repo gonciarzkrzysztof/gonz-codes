@@ -5,6 +5,12 @@
 
   .link {
     --link-translateX: 0;
-    --link-translateY: -.25em;
+    --link-translateY: -.2em;
+    margin-left: 0;
+    padding-left: 0;
+
+    &:before {
+      content: none;
+    }
   }
 }

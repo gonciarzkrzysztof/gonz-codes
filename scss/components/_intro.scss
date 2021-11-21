@@ -7,8 +7,9 @@
   }
 
   &__heading,
-  &__lead {
+  .copy {
     grid-column-start: 2;
+    max-width: var(--layout-wide-part);
   }
 
   &__heading {
@@ -33,7 +34,6 @@
   }
 
   .copy {
-    max-width: 32.5em;
     animation-name: opacity, translateY;
     animation-delay: calc(var(--duration-fast) + var(--duration-default));
     animation-duration: var(--duration-default);

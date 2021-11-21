@@ -20,54 +20,24 @@
   }
 
   &__button {
-    --changelog-button-padding: 2ch;
-    --changelog-button-final-shift: -1ch;
-
     position: relative;
-    padding: 0 var(--changelog-button-padding);
     font-family: var(--font-family-mono);
-    font-weight: 600;
+    cursor: pointer;
     text-transform: lowercase;
+    text-underline-offset: 0.2em;
 
     @media (hover: hover) {
-      will-change: opacity, transform;
-
-      &,
-      &:before,
-      &:after {
-        transition: transform var(--duration-blink);
+      &:hover,
+      &:focus {
+        text-decoration: underline;
       }
-
-      &:hover {
-        transform: translateX(calc(-1 * var(--changelog-button-final-shift)));
-
-        &:before {
-          transform: translateX(var(--changelog-button-final-shift));
-        }
-
-        &:after {
-          transform: translateX(calc(-1 * var(--changelog-button-final-shift)));
-        }
-      }
-    }
-
-
-    &:before,
-    &:after {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      z-index: -5;
     }
 
     &:before {
-      content: '[    ';
-      left: 0;
-    }
-
-    &:after {
-      content: '    ]';
-      right: 0;
+      content: '>';
+      display: inline-block;
+      margin-right: 1ch;
+      text-decoration: none;
     }
   }
 }

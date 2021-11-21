@@ -10,7 +10,8 @@ function Changelog() {
     async function fetchData() {
       const response = await fetch('https://api.github.com/repos/gonciarzkrzysztof/gonz-codes/commits');
       const commits = await response.json();
-      setCommits(commits);
+
+      setCommits(Array.isArray(commits) && commits);
     }
 
     fetchData()
@@ -21,15 +22,11 @@ function Changelog() {
       <Heading className="changelog__heading heading--2" tag="h2">Changelog</Heading>
 
       <ul className="changelog__list layout--normal">
-        {(isListExpanded ? commits : commits.slice(0, 5)).map(commit => {
-          return (
-            <Commit commit={commit} tag="li" key={commit.sha} />
-          )
-        }
+        {commits && (isListExpanded ? commits : commits.slice(0, 5)).map(commit => <Commit commit={commit} tag="li" key={commit.sha} />
         )}
       </ul>
 
-      { !isListExpanded && <button class="changelog__button" onClick={() => setIsListExpanded(true)}>Show all</button> }
+      { !isListExpanded && <button className="changelog__button" onClick={() => setIsListExpanded(true)}>Show all</button> }
     </section>
   )
 }

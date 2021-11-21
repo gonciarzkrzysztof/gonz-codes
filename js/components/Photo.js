@@ -1,9 +1,11 @@
 function Photo(props) {
-  return (
+  const { photo, alt } = props;
+
+  return photo && (
     <figure className="photo">
-      <img className="photo__img" src={props.src} srcset={props.src2x + ' 2x, ' + props.src + ' 1x'} width={props.width} height={props.height} alt={props.alt} loading="lazy" />
+    <img className="photo__img" src={ photo.url } width={ photo.metadata.dimensions.width } height={ photo.metadata.dimensions.height } alt={ alt } loading="lazy" />
     </figure>
-  )
+  ) || null
 }
 
 export default Photo;

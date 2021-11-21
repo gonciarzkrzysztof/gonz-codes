@@ -18,6 +18,7 @@
     "last 1 Chrome version"
   ],
   "dependencies": {
+    "@sanity/client": "^2.21.7",
     "components": "^0.1.0",
     "react": "17.0.2",
     "react-dom": "^17.0.2"

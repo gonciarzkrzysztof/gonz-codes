@@ -2,19 +2,36 @@ import Heading from './Heading';
 import Photo from './Photo';
 import Copy from './Copy';
 import Link from './Link';
-import japa from '/assets/japa.jpg';
-import japa2x from '/assets/japa@2x.jpg';
+
+import sanityClient from "../sanityClient.js";
+import extractBlockContent from "../utils/extractBlockContent.js"
 
 function Intro(props) {
+  const { useState, useEffect } = React;
+  const [ intro, setIntro ] = useState([]);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "intro"] {
+          'photo': photo.asset->,
+          ...
+        }`
+      )
+      .then(data => setIntro(data[0]))
+      .catch(console.error);
+  }, []);
+
   return (
     <section className="intro layout--leading-narrow">
-      <Heading className="intro__heading heading--1" tag="h2">Hey there,<br/>Gonz here!</Heading>
+      <Heading className="intro__heading heading--1" tag="h2">
+        { intro.heading }
+      </Heading>
 
-      <Photo src={ japa } src2x={ japa2x } width="390" height="495" alt="Me, Gonz" />
+      <Photo photo={ intro.photo } alt={ `Photo of the author.` } />
 
       <Copy>
-        <p>Design-focused web developer with 5+ years of work experience and 50+ commercial RWD projects. Currently building design system.</p>
-        <p>Checkout my portfolio and see how it evolves in <Link href="#changelog">Changelog</Link>.</p>
+        { extractBlockContent(intro.copy) }
       </Copy>
     </section>
   )

@@ -1,21 +1,14 @@
 import Link from './Link';
 
-function slugify(string) {
-  return string
-    .normalize("NFD")
-    .toLowerCase()
-    .replace(/ /g,'-')
-    .replace(/[^\w-]+/g,'')
-}
 
 function Nav(props) {
   return (
     <nav className="nav">
       { props.entries.map(entry => {
-        const slug = slugify(entry);
-
+        const { title, slug } = entry;
+        
         return (
-          entry !== "" ? <Link href={ `#${slug}` } key={ slug }>{ entry }</Link> : <br/>
+          entry !== "<br/>" ? <Link href={ `#${ slug.current || slug }` } key={ slug.current || slug }>{ title }</Link> : <br key="br"/>
         )
       })}
     </nav>

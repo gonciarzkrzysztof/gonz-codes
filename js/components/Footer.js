@@ -2,18 +2,30 @@ import LoadingAnimation from './LoadingAnimation';
 import Wrapper from './Wrapper';
 import Link from './Link';
 
+import sanityClient from "../sanityClient.js";
+import extractBlockContent from "../utils/extractBlockContent.js"
+
 function Footer() {
+  const { useState, useEffect } = React;
+  const [ content, setContent ] = useState([]);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "footer"]`
+      )
+      .then(data => setContent(data[0]))
+      .catch(console.error);
+  }, []);
+
   return (
     <footer className="footer">
       <LoadingAnimation className="layout--normal">
         <Wrapper className="layout--leading-wide">
           <div className="footer__content">
-            <Link href="mailto:gonciarz.krzysztof@gmail.com">gonciarz.krzysztof@gmail.com</Link><br/>
-            <Link href="https://github.com/gonciarzkrzysztof">github.com/gonciarzkrzysztof</Link><br/>
-            <Link href="http://linkedin.com/in/krzysztof-gonciarz">linkedin.com/in/krzysztof-gonciarz</Link><br/>
-            <Link href="tel:48664988164">+48 664 988 164</Link><br/>
+            { extractBlockContent(content.links) }
             <br/>
-            <small className="footer__copyrights">&copy;2021</small>
+            <small className="footer__copyrights">&copy;{ content.year }</small>
           </div>
         </Wrapper>
       </LoadingAnimation>

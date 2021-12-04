@@ -1,3 +1,5 @@
+import React from "react";
+
 function Copy(props) {
   return (
     <div className="copy">

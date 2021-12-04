@@ -1,3 +1,5 @@
+import React from "react";
+
 function Photo(props) {
   const { photo, alt } = props;
 

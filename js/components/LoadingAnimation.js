@@ -1,3 +1,5 @@
+import React from "react";
+
 function LoadingAnimation(props) {
   const { useState, useEffect } = React;
   const [ isRunningClassName, setIsRunningClassName ] = useState('');

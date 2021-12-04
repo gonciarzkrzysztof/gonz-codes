@@ -1,3 +1,4 @@
+import React from "react";
 import Heading from './Heading';
 import Photo from './Photo';
 import Copy from './Copy';

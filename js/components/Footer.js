@@ -1,3 +1,4 @@
+import React from "react";
 import LoadingAnimation from './LoadingAnimation';
 import Wrapper from './Wrapper';
 import Link from './Link';

@@ -49,7 +49,7 @@ function Main(props) {
         <Wrapper className="layout--loose layout--leading-wide">
           <Intro />
           <Nav entries={ navEntries } />
-          <Projects projects={ projects } />
+          {projects.length > 0 && <Projects projects={ projects } />}
           <Changelog />
         </Wrapper>
       </LoadingAnimation>

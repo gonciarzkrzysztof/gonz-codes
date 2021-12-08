@@ -51,8 +51,11 @@
 }
 
 html {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  --background-color: var(--color-white);
+  --color: var(--color-black);
+
+  background-color: var(--background-color);
+  color: var(--color);
   font-size: 62.5%;
   font-size: calc(.5 * 62.5% + .5 * (100vw / 144));
   -webkit-font-smoothing: antialiased;
@@ -60,8 +63,8 @@ html {
   scroll-padding: var(--gap-vertical);
 
   @media (prefers-color-scheme: dark) {
-    background-color: var(--color-dark);
-    color: var(--color-white);
+    --background-color: var(--color-dark);
+    --color: var(--color-white);
   }
 }
 

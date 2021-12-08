@@ -4,7 +4,7 @@ import Commit from './Commit';
 
 function Changelog() {
   const { useState, useEffect } = React;
-  const [commits, setCommits] = useState([]);
+  const [commits, setCommits] = useState(null);
   const [isListExpanded, setIsListExpanded] = useState(false);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function Changelog() {
     fetchData()
   }, [])
 
-  return (
+  return commits && (
     <section className="changelog layout--dense" id="changelog">
       <Heading className="changelog__heading heading--2" tag="h2">Changelog</Heading>
 

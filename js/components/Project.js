@@ -16,7 +16,7 @@ function Project(props) {
 
   const { startDate, endDate } = project.time;
 
-  return (
+  return project && (
     <article id={ project.slug.current } className={`project ${props.className || ''}`}>
       <Heading className="project__title heading--2" tag="h3">
         <Link className="heading--2__text" href={project.url}>{project.title}</Link>
@@ -35,7 +35,7 @@ function Project(props) {
         { extractBlockContent(project.description) }
       </Copy>
 
-      <Photo photo={ project.photo } alt={ `Screenshot of ${ project.title }.` } />
+      <Photo photo={project.photo} width="860" alt={ `Screenshot of ${ project.title }.` } />
     </article>
   )
 }

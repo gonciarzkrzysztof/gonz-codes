@@ -72,7 +72,7 @@
       right: 0;
       bottom: 0;
       margin: -.5em;
-      background-color: var(--color-white);
+      background-color: var(--background-color);
       transform-origin: left;
       animation: intro-photo-after var(--duration-slow) var(--ease-in-out) both;
       will-change: transform;

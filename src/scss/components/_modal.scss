@@ -1,0 +1,129 @@
+.modal {
+  &:not([open]) {
+    .modal__toggle {
+      &:before,
+      &:after {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+
+    .modal__preview {
+      position: absolute;
+      transform: scale(calc(860 / 1200));
+      transform-origin: left;
+    }
+  }
+
+  &[open] {
+    .modal__preview {
+      position: fixed;
+      z-index: 100;
+      max-width: calc(100% - 2 * 2 * var(--wrapper-padding));
+      max-height: calc(100% - 2 * 2 * var(--wrapper-padding));
+    }
+  }
+
+
+  &__toggle {
+    position: relative;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: var(--wrapper-padding);
+    aspect-ratio: 16/10;
+    overflow: hidden;
+
+    &::marker {
+      content: '';
+      display: none;
+    }
+
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 5;
+      background-color: var(--background-color);
+      opacity: .85;
+    }
+
+    .photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    &:after {
+      content: '\2573';
+      position: fixed;
+      top: var(--wrapper-padding);
+      right: var(--wrapper-padding);
+      z-index: 10;
+      display: inline-block;
+      cursor: pointer;
+      font-size: 2rem;
+      line-height: 1;
+    }
+  }
+
+  &__expand {
+    z-index: 10;
+    cursor: pointer;
+    transition: opacity var(--duration-fast);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -5;
+      background-color: var(--background-color);
+      opacity: .85;
+    }
+
+    &:after {
+      content: none;
+    }
+
+    @media (hover: hover) {
+      &:not(:hover) {
+        opacity: 0;
+
+        .modal__expand-label {
+          transform: translateY(100%);
+          transition-duration: var(--duration-fast);
+        }
+      }
+    }
+
+
+    &-label {
+      display: inline-block;
+      transition: transform var(--duration-blink);
+    }
+  }
+
+  &__preview {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    width: var(--wrapper-max-width);
+    height: auto;
+    margin: auto;
+    aspect-ratio: 16/10;
+
+    @media #{$breakpoint-mobile} {
+      aspect-ratio: 375 / 667;
+    }
+  }
+
+}

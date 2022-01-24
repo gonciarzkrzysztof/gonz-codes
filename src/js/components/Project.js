@@ -3,8 +3,9 @@ import Heading from './Heading';
 import Link from './Link';
 import Copy from './Copy';
 import Photo from './Photo';
+import Modal from './Modal';
 import sanityClient from "../sanityClient.js";
-import extractBlockContent from "../utils/extractBlockContent.js"
+import extractBlockContent from "../utils/extractBlockContent.js";
 
 function Project(props) {
   const { project } = props;
@@ -35,7 +36,7 @@ function Project(props) {
         { extractBlockContent(project.description) }
       </Copy>
 
-      <Photo photo={project.photo} width="860" alt={ `Screenshot of ${ project.title }.` } />
+      <Modal project={ project } />
     </article>
   )
 }

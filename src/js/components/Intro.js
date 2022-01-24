@@ -12,6 +12,9 @@ function Intro(props) {
   const [ intro, setIntro ] = useState(null);
 
   useEffect(() => {
+    document.addEventListener("securitypolicyviolation", (e) => {
+      console.log('halo', e);
+    });
     sanityClient
       .fetch(
         `*[_type == "intro"] {

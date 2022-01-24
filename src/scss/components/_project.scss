@@ -30,8 +30,12 @@
     will-change: opacity;
   }
 
+  .modal {
+    grid-column: 1/-1;
+  }
+
   .photo {
-    grid-column: 1 / -1;
+    // grid-column: 1 / -1;
 
     &__img {
       transform-origin: top;

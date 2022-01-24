@@ -8,11 +8,12 @@
 *.scss.map
 
 # Parcel
-dist/
 .cache/
+.parcel-cache/
+dist/
 
 # Node modules
 /node_modules
 
 # Sanity
-sanity/node_modules
+src/sanity/node_modules

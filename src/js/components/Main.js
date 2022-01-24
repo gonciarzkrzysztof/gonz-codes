@@ -20,6 +20,9 @@ function Main(props) {
         `*[_type == "project"]{
           technologies[]->,
           'photo': photo.asset->,
+          'html_file': html_file.asset->,
+          'css_file': css_file.asset->,
+          'js_file': js_file.asset->, 
           ...
         }`
       )

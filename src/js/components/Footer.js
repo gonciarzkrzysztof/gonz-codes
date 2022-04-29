@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LoadingAnimation from './LoadingAnimation';
 import Wrapper from './Wrapper';
 import Link from './Link';
@@ -7,8 +7,7 @@ import sanityClient from "../sanityClient.js";
 import extractBlockContent from "../utils/extractBlockContent.js"
 
 function Footer() {
-  const { useState, useEffect } = React;
-  const [ content, setContent ] = useState([]);
+  const [content, setContent] = useState([]);
 
   useEffect(() => {
     sanityClient
@@ -24,9 +23,9 @@ function Footer() {
       <LoadingAnimation className="layout--normal">
         <Wrapper className="layout--leading-wide">
           <div className="footer__content">
-            { extractBlockContent(content.links) }
-            <br/>
-            <small className="footer__copyrights">&copy;{ content.year }</small>
+            {extractBlockContent(content.links)}
+            <br />
+            <small className="footer__copyrights">&copy;{content.year}</small>
           </div>
         </Wrapper>
       </LoadingAnimation>

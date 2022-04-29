@@ -1,9 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Heading from './Heading';
 import Commit from './Commit';
 
 function Changelog() {
-  const { useState, useEffect } = React;
   const [commits, setCommits] = useState(null);
   const [isListExpanded, setIsListExpanded] = useState(false);
 
@@ -15,7 +14,7 @@ function Changelog() {
       setCommits(Array.isArray(commits) && commits);
     }
 
-    fetchData()
+    fetchData();
   }, [])
 
   return commits && (
@@ -27,7 +26,7 @@ function Changelog() {
         )}
       </ul>
 
-      { !isListExpanded && <button className="changelog__button" onClick={() => setIsListExpanded(true)}>Show all</button> }
+      {!isListExpanded && <button className="changelog__button" onClick={() => setIsListExpanded(true)}>Show all</button>}
     </section>
   )
 }

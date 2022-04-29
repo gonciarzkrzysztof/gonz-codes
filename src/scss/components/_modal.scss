@@ -1,6 +1,6 @@
 .modal {
   &:not([open]) {
-    .modal__toggle {
+    .modal__toggler {
       &:before,
       &:after {
         opacity: 0;
@@ -25,7 +25,7 @@
   }
 
 
-  &__toggle {
+  &__toggler {
     position: relative;
     display: grid;
     place-items: center;

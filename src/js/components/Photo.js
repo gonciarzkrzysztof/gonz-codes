@@ -3,7 +3,7 @@ import React from "react";
 function Photo(props) {
   const { photo, alt, width } = props;
   const ratio = photo && photo.metadata.dimensions.aspectRatio;
-  const renderWidth = width * 1.4;
+  const renderWidth = Math.round(width * 1.4);
 
   return (
     <figure className="photo">

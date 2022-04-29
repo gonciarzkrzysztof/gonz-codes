@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import LoadingAnimation from './LoadingAnimation';
 import Wrapper from './Wrapper';
 import Intro from './Intro';
@@ -11,8 +11,7 @@ import sanityClient from "../sanityClient.js";
 
 
 function Main(props) {
-  const { useState, useEffect } = React;
-  const [ projects, setProjects ] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
     sanityClient
@@ -22,7 +21,7 @@ function Main(props) {
           'photo': photo.asset->,
           'html_file': html_file.asset->,
           'css_file': css_file.asset->,
-          'js_file': js_file.asset->, 
+          'js_file': js_file.asset->,
           ...
         }`
       )
@@ -51,8 +50,8 @@ function Main(props) {
       <LoadingAnimation className="layout--normal">
         <Wrapper className="layout--loose layout--leading-wide">
           <Intro />
-          <Nav entries={ navEntries } />
-          {projects.length > 0 && <Projects projects={ projects } />}
+          <Nav entries={navEntries} />
+          {projects.length > 0 && <Projects projects={projects} />}
           <Changelog />
         </Wrapper>
       </LoadingAnimation>

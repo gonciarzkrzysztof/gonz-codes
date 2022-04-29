@@ -18,7 +18,7 @@ function Project(props) {
   const { startDate, endDate } = project.time;
 
   return project && (
-    <article id={ project.slug.current } className={`project ${props.className || ''}`}>
+    <article id={project.slug.current} className={`project ${props.className || ''}`}>
       <Heading className="project__title heading--2" tag="h3">
         <Link className="heading--2__text" href={project.url}>{project.title}</Link>
       </Heading>
@@ -27,16 +27,16 @@ function Project(props) {
         <p className="project__company">With <Link href={project.company.url}>{project.company.name}</Link></p>
         <p className="project__time">
           <time dateTime={startDate}>{startDate}</time>
-          {(startDate !== endDate && endDate && <time dateTime={endDate}> – {endDate}</time>) || <time dateTime={ new Date().toLocaleDateString().replaceAll('.', '-') }> - Now</time>}
+          {(startDate !== endDate && endDate && <time dateTime={endDate}> – {endDate}</time>) || <time dateTime={new Date().toLocaleDateString().replaceAll('.', '-')}> - Now</time>}
         </p>
         <p className="project__technologies">{project.technologies.map(technology => technology.title).join(', ')}</p>
       </div>
 
       <Copy>
-        { extractBlockContent(project.description) }
+        {extractBlockContent(project.description)}
       </Copy>
 
-      <Modal project={ project } />
+      <Modal project={project} />
     </article>
   )
 }

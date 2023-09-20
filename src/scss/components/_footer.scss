@@ -2,7 +2,7 @@
   --animation-delay: calc(var(--duration-slow) + var(--duration-fast));
 
   padding-top: 1rem;
-  padding-bottom: 1rem;
+  padding-bottom: var(--gap-vertical);
 
   .wrapper {
     @media #{$breakpoint-tablet} {

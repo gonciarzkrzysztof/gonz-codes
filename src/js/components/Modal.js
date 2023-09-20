@@ -10,7 +10,7 @@ function Modal(props) {
 
   const observer = new IntersectionObserver(
     (entries, observer) => {
-      setIsIntersecting(entries[0].isIntersecting)
+      setIsIntersecting(entries[0].isIntersecting);
     },
     {
       threshold: 0
@@ -26,10 +26,10 @@ function Modal(props) {
 
 
   if (isIntersecting) {
-    const threshold = innerHeight - iframe.current.getBoundingClientRect().height - iframe.current.getBoundingClientRect().top;
+    const threshold = innerHeight - iframe.current.getBoundingClientRect().top - .5 * iframe.current.getBoundingClientRect().height;
 
     if (threshold) {
-      requestAnimationFrame(() => iframe.current.contentWindow.scrollTo(0, .33 * threshold));
+      // requestAnimationFrame(() => iframe.current.contentWindow.scrollTo(0, .33 * threshold));
     }
   }
 
@@ -40,11 +40,11 @@ function Modal(props) {
   }, [isIntersecting]);
 
   const handleTogglerClick = e => {
-    e.preventDefault();
+    // e.preventDefault();
 
-    setTimeout(() => {
-      setIsOpen(!isOpen);
-    }, isOpen ? 0 : 0)
+    // setTimeout(() => {
+    setIsOpen(!isOpen);
+    // }, isOpen ? 0 : 0)
   }
 
   const handlerTransitionEnd = e => {
@@ -53,14 +53,14 @@ function Modal(props) {
 
 
   return (
-    <details className="modal" ref={modal} open={isOpen}>
-      <summary className="modal__toggler" onClick={handleTogglerClick}>
-        {previewSrc !== '' && <iframe className="modal__preview" ref={iframe} src={previewSrc} width="1440" height="900" loading="lazy"></iframe>}
-        <p className="modal__expand heading--2">
-          <span className="modal__expand-label">Click to expand</span>
-        </p>
-      </summary>
-    </details >
+    <div className={`modal ${isOpen ? 'is-open' : ''}`} ref={modal}>
+      <a className="modal__toggler" href={`#${project.slug.current}`} onClick={handleTogglerClick}>
+        <span class="visually-hidden">{isOpen ? 'Close' : 'Open'} the modal</span>
+        <span aria-hidden="true" class="modal__cross">&#9587;</span>
+      </a>
+
+      {previewSrc !== '' && <iframe className="modal__preview" ref={iframe} src={previewSrc} width="1440" height="900" loading="lazy"></iframe>}
+    </div >
   )
 }
 

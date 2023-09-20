@@ -20,7 +20,9 @@
     "@parcel/transformer-jsonld": "^2.2.0",
     "@parcel/transformer-sass": "^2.2.0",
     "@parcel/transformer-webmanifest": "^2.2.0",
-    "parcel": "^2.2.0"
+    "cssnano": "^6.0.1",
+    "parcel": "^2.2.0",
+    "postcss": "^8.2.15"
   },
   "dependencies": {
     "@sanity/client": "^2.21.7",

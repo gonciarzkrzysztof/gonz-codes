@@ -1,9 +1,0 @@
-.loading-animation {
-  &:not(.is-loading-animation-running) {
-    *,
-    *:before,
-    *:after {
-      animation-play-state: paused!important;
-    }
-  }
-}

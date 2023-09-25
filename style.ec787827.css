@@ -1,0 +1,760 @@
+/* Vendor */
+/*
+	HTML5 Reset :: style.css
+	----------------------------------------------------------
+	We have learned much from/been inspired by/taken code where offered from:
+
+	Eric Meyer					:: http://meyerweb.com
+	HTML5 Doctor				:: http://html5doctor.com
+	and the HTML5 Boilerplate	:: http://html5boilerplate.com
+
+-------------------------------------------------------------------------------*/
+/* Let's default this puppy out
+-------------------------------------------------------------------------------*/
+html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, menu, nav, section, time, mark, audio, video, details, summary {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font-weight: inherit;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+article, aside, figure, footer, header, nav, section, details, summary {
+  display: block;
+}
+
+/* Handle box-sizing while better addressing child elements: 
+   http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+html {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+/* consider resetting the default cursor: https://gist.github.com/murtaugh/5247154 */
+/* Responsive images and other embedded objects
+   Note: keeping IMG here will cause problems if you're using foreground images as sprites.
+   If this default setting for images is causing issues, you might want to replace it with a .responsive class instead. */
+img,
+object,
+embed {
+  max-width: 100%;
+}
+
+/* force a vertical scrollbar to prevent a jumpy page */
+html {
+  overflow-y: scroll;
+}
+
+/* we use a lot of ULs that aren't bulleted. 
+	don't forget to restore the bullets within content. */
+ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+abbr[title], dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help;
+}
+
+/* tables still need cellspacing="0" in the markup */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th {
+  font-weight: bold;
+  vertical-align: bottom;
+}
+
+td {
+  font-weight: normal;
+  vertical-align: top;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+input, select {
+  vertical-align: middle;
+}
+
+pre {
+  white-space: pre;
+  /* CSS2 */
+  white-space: pre-wrap;
+  /* CSS 2.1 */
+  white-space: pre-line;
+  /* CSS 3 (and 2.1 as well, actually) */
+  word-wrap: break-word;
+  /* IE */
+}
+
+input[type=radio] {
+  vertical-align: text-bottom;
+}
+
+input[type=checkbox] {
+  vertical-align: bottom;
+}
+
+.ie7 input[type=checkbox] {
+  vertical-align: baseline;
+}
+
+.ie6 input {
+  vertical-align: text-bottom;
+}
+
+select, input, textarea {
+  font: 99% sans-serif;
+}
+
+table {
+  font-size: inherit;
+  font: 100%;
+}
+
+small {
+  font-size: 85%;
+}
+
+strong {
+  font-weight: bold;
+}
+
+td, td img {
+  vertical-align: top;
+}
+
+/* Make sure sup and sub don't mess with your line-heights http://gist.github.com/413930 */
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* standardize any monospaced elements */
+pre, code, kbd, samp {
+  font-family: monospace, sans-serif;
+}
+
+/* hand cursor on clickable elements */
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+  cursor: pointer;
+}
+
+/* Webkit browsers add a 2px margin outside the chrome of form elements */
+button, input, select, textarea {
+  margin: 0;
+}
+
+/* make buttons play nice in IE */
+button,
+input[type=button] {
+  width: auto;
+  overflow: visible;
+}
+
+/* scale images in IE7 more attractively */
+.ie7 img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* prevent BG image flicker upon hover 
+   (commented out as usage is rare, and the filter syntax messes with some pre-processors)
+.ie6 html {filter: expression(document.execCommand("BackgroundImageCache", false, true));}
+*/
+/* let's clear some floats */
+.clearfix:before, .clearfix:after {
+  content: " ";
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.clearfix:after {
+  clear: both;
+}
+
+.clearfix {
+  zoom: 1;
+}
+
+/* Base */
+@font-face {
+  font-family: "Montserrat";
+  src: url("Montserrat-Bold.7e7d67a6.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Horizon";
+  src: url("Horizon.d06d64a6.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+/*
+Let's you add code for specific window size.
+
+Properties:
+- $from (string | number): defines where included code starts working. Using values from '$breakpoints' map in '_variables.scss' is suggested but you can also use custom ones;
+
+- $to (string | number): defines where included code stops working. Also custom values are allowed;
+
+- $exclude (string | list | [list]): defines breakpoints that are excluded from working. You can define single (i.e. $exclude: tablet), multiple (i.e. $exclude: tablet phablet) or ranged  (i.e. $exclude: [tablet phablet]) values. As far as multiple values let you exclude only particular breakpoints (tablet and phablet separately), ranged values exclude those breakpoints and everything between (from tablet to phablet);
+
+- $only (string | list): use it if you want to add styles only for particular breakpoints. Will be ignored if '$from' or '$to' are defined;
+
+- $height (boolean): use it if you want mixin to work with the screen height instead of its width;
+
+- $landscape (boolean): use it if you want to execute code only if screen width is greater than its height;
+
+- $also (string): lets you duplicate defined styles for some other occassions i.e. $bp(tablet, $also: '.touch') may be helplful if you want your code to be executed on the tablets but also devices that support screen touch.
+
+For examples, look at the bottom of this file.
+*/
+/*
+header {
+
+// Excludes tablet and phablet
+// @include bp($from: desktop, $to: mobile-s, $exclude: tablet phablet) { background: tomato; }
+
+// Excludes range from tablet to phablet, so portrait also
+// @include bp($from: desktop, $to: mobile-s, $exclude: [tablet phablet]) { background: tomato; }
+
+// Adds styles also for specific cases, i.e. if device has no touch or for particular section
+// @include bp(phablet, $also: '.menu-visible') { background-color: tomato; }
+
+// Adds styles for particular breakpoints only. Will be ignored if $from or $to are defined
+//    Will work
+// @include bp($only: tablet phablet) { background-color: tomato;}
+// @include bp($only: hd) { background-color: tomato;}
+
+
+//    Will not work
+// @include bp($from: tablet, $only: phablet) { background-color: tomato;}
+
+// Applies styles only if width of the screen is greater than its height
+// @include bp($landscape: true) { background-color: tomato;}
+
+// Custom values
+// @include bp(portrait, 300) { background-color: tomato;}
+
+// Height instead of width
+// @include bp(400, $height: true) { background-color: tomato;}
+
+// Errors:
+// - wrong values
+// @include bp(portrait, janusz) { background-color: tomato;}
+
+// - $from set to the highest breakpoint
+// @include bp(hd) { background-color: tomato;}
+
+// - custom/wrong value for $only
+// @include bp($only: janusz) { background-color: tomato;}
+
+}
+*/
+html {
+  background-color: #202020;
+  background-image: radial-gradient(transparent, rgba(0, 0, 0, 0.75));
+  color: #fff;
+  overflow: hidden;
+  scroll-behavior: smooth;
+}
+
+img,
+svg {
+  height: auto;
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+svg {
+  overflow: visible;
+}
+
+input,
+select,
+button,
+textarea {
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  color: inherit;
+  font: inherit;
+  -webkit-appearance: none;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: currentColor;
+}
+
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color: currentColor;
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color: currentColor;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color: currentColor;
+}
+
+textarea {
+  resize: none;
+}
+
+address {
+  font-style: normal;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  font-family: "Montserrat", "Helvetica Neue", "Helvetica", sans-serif;
+  font-size: calc(0.380952381vw + 0.6rem);
+  font-weight: normal;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:hover {
+  color: inherit;
+}
+
+@keyframes banner {
+  25% {
+    transform: none;
+  }
+  50% {
+    transform: translateY(-200%);
+  }
+  50.0001% {
+    transform: translateY(200%);
+  }
+  75% {
+    transform: none;
+  }
+}
+@keyframes link {
+  50% {
+    transform: translateX(100%);
+  }
+  50.0001% {
+    transform: translateX(-100%);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-100%);
+  }
+}
+/* Components */
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.layout .header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  z-index: 10;
+}
+.layout .main {
+  flex: 1 0 auto;
+}
+.layout .footer {
+  flex: none;
+}
+.layout .hand {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -5;
+}
+
+.header {
+  width: 100%;
+  max-width: calc(calc(35.4285714286vw + 55.8rem) + 2 * calc(2.2857142857vw + 3.6rem));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(2.2857142857vw + 3.6rem);
+  padding-right: calc(2.2857142857vw + 3.6rem);
+  display: flex;
+  align-items: center;
+  height: calc(2.8571428571vw + 4.5rem);
+}
+@media screen and (max-width: 1023px) {
+  .header {
+    padding-left: calc(1.1428571429vw + 1.8rem);
+    padding-right: calc(1.1428571429vw + 1.8rem);
+  }
+}
+@media screen and (max-width: 767px) {
+  .header {
+    padding-left: calc(0.7619047619vw + 1.2rem);
+    padding-right: calc(0.7619047619vw + 1.2rem);
+  }
+}
+@media screen and (max-width: 767px) {
+  .header {
+    height: calc(1.9047619048vw + 3rem);
+  }
+}
+.header-title {
+  flex: none;
+  z-index: 10;
+}
+.header-slogan {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+@media screen and (max-width: 767px) {
+  .header-slogan {
+    display: block;
+    margin-top: -1em;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-align: left;
+  }
+}
+@media screen and (max-width: 767px) {
+  .header .marquee-content {
+    width: 100%;
+    max-width: calc(calc(30.8571428571vw + 48.6rem) + 2 * calc(2.2857142857vw + 3.6rem));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: calc(2.2857142857vw + 3.6rem);
+    padding-right: calc(2.2857142857vw + 3.6rem);
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 1023px) {
+  .header .marquee-content {
+    padding-left: calc(1.1428571429vw + 1.8rem);
+    padding-right: calc(1.1428571429vw + 1.8rem);
+  }
+}
+@media screen and (max-width: 767px) and (max-width: 767px) {
+  .header .marquee-content {
+    padding-left: calc(0.7619047619vw + 1.2rem);
+    padding-right: calc(0.7619047619vw + 1.2rem);
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+.main-section {
+  width: 100%;
+  max-width: calc(calc(30.8571428571vw + 48.6rem) + 2 * calc(2.2857142857vw + 3.6rem));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(2.2857142857vw + 3.6rem);
+  padding-right: calc(2.2857142857vw + 3.6rem);
+  flex: 1 0 auto;
+}
+@media screen and (max-width: 1023px) {
+  .main-section {
+    padding-left: calc(1.1428571429vw + 1.8rem);
+    padding-right: calc(1.1428571429vw + 1.8rem);
+  }
+}
+@media screen and (max-width: 767px) {
+  .main-section {
+    padding-left: calc(0.7619047619vw + 1.2rem);
+    padding-right: calc(0.7619047619vw + 1.2rem);
+  }
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-banner {
+  margin: 0.5em auto 0;
+  font-size: calc(5.1428571429vw + 3.6rem);
+}
+@media screen and (max-width: 767px) {
+  .home-banner {
+    font-size: calc(6vw + 2.7rem);
+  }
+}
+@media screen and (max-width: 374px) {
+  .home-banner {
+    font-size: calc(6.4285714286vw + 2.25rem);
+  }
+}
+
+.footer {
+  width: 100%;
+  max-width: calc(calc(35.4285714286vw + 55.8rem) + 2 * calc(2.2857142857vw + 3.6rem));
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: calc(2.2857142857vw + 3.6rem);
+  padding-right: calc(2.2857142857vw + 3.6rem);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: calc(2.8571428571vw + 4.5rem);
+}
+@media screen and (max-width: 1023px) {
+  .footer {
+    padding-left: calc(1.1428571429vw + 1.8rem);
+    padding-right: calc(1.1428571429vw + 1.8rem);
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer {
+    padding-left: calc(0.7619047619vw + 1.2rem);
+    padding-right: calc(0.7619047619vw + 1.2rem);
+  }
+}
+@media screen and (max-width: 767px) {
+  .footer {
+    height: calc(1.9047619048vw + 3rem);
+  }
+}
+.footer-socials {
+  display: flex;
+  font-size: calc(0.4761904762vw + 0.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+.footer-socials-item:not(:last-child) {
+  margin-right: 1.8em;
+}
+
+.banner {
+  display: inline-block;
+  padding: 0.1em 0.25em 0;
+  background-color: #fff;
+  color: #202020;
+  font-family: "Horizon";
+  line-height: 1;
+  overflow: hidden;
+}
+.banner-letter {
+  display: inline-block;
+  animation: banner 4s cubic-bezier(0.9, 0, 0.1, 1) infinite;
+}
+.banner-letter:nth-child(1) {
+  animation-delay: 75ms;
+}
+.banner-letter:nth-child(2) {
+  animation-delay: 150ms;
+}
+.banner-letter:nth-child(3) {
+  animation-delay: 225ms;
+}
+.banner-letter:nth-child(4) {
+  animation-delay: 300ms;
+}
+.banner-letter:nth-child(5) {
+  animation-delay: 375ms;
+}
+.banner-letter:nth-child(6) {
+  animation-delay: 450ms;
+}
+.banner-letter:nth-child(7) {
+  animation-delay: 525ms;
+}
+.banner-letter:nth-child(8) {
+  animation-delay: 600ms;
+}
+.banner-letter:nth-child(9) {
+  animation-delay: 675ms;
+}
+.banner-letter:nth-child(10) {
+  animation-delay: 750ms;
+}
+.banner-letter:nth-child(11) {
+  animation-delay: 825ms;
+}
+.banner-letter:nth-child(12) {
+  animation-delay: 900ms;
+}
+.banner-letter:nth-child(13) {
+  animation-delay: 975ms;
+}
+.banner-letter:nth-child(14) {
+  animation-delay: 1050ms;
+}
+.banner-letter:nth-child(15) {
+  animation-delay: 1125ms;
+}
+.banner-letter:nth-child(16) {
+  animation-delay: 1200ms;
+}
+.banner-letter:nth-child(17) {
+  animation-delay: 1275ms;
+}
+.banner-letter:nth-child(18) {
+  animation-delay: 1350ms;
+}
+.banner-letter:nth-child(19) {
+  animation-delay: 1425ms;
+}
+.banner-letter:nth-child(20) {
+  animation-delay: 1500ms;
+}
+
+.label {
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.marquee {
+  overflow: hidden;
+}
+.marquee-content {
+  display: inline-block;
+  min-width: 100%;
+  margin: 0 -1em;
+  padding: 0 1em;
+  position: relative;
+  animation: marquee 16s linear 4s infinite;
+  will-change: transform;
+}
+.marquee-content:after {
+  content: attr(data-marquee);
+  padding: inherit;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 100%;
+  white-space: nowrap;
+}
+
+.cursor {
+  width: 7em;
+  height: 7em;
+  margin: -3.5em;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  border-radius: 50vw;
+  color: #fff;
+  mix-blend-mode: exclusion;
+  pointer-events: none;
+  opacity: 0;
+}
+.cursor:before {
+  content: "";
+  display: block;
+  width: 3em;
+  height: 3em;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50vw;
+  background-color: currentColor;
+  overflow: hidden;
+  transform: scale(0.16);
+  transition: transform 100ms;
+}
+.cursor-circle {
+  width: 100%;
+  height: 100%;
+}
+.cursor-circle .label {
+  display: block;
+  fill: currentColor;
+  font-size: 16px;
+  text-align: center;
+  word-spacing: 0.25em;
+}
+.cursor-ref {
+  letter-spacing: 0.1em;
+  white-space: nowrap;
+}
+.cursor.is-expanded:before {
+  transform: none;
+}
+
+/* Shame */
+*,
+*:before,
+*:after {
+  cursor: none !important;
+}
+
+/*# sourceMappingURL=style.ec787827.css.map */

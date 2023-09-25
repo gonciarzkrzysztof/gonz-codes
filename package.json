@@ -8,7 +8,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel 'src/*.html'",
-    "build": "parcel build 'src/*.html'"
+    "build": "parcel build 'src/*.html'",
+    "deploy": "npx -p parcel-bundler parcel build src/index.html"
   },
   "browserslist": "> 0.25%",
   "devDependencies": {

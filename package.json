@@ -1,0 +1,13 @@
+{
+  "name": "gonz-codes",
+  "version": "1.0.0",
+  "description": "Portfolio of Gonz, Web Developer",
+  "repository": "git@github.com:gonciarzkrzysztof/gonz-codes.git",
+  "author": "Krzysztof Gonciarz <gonciarz.krzysztof@gmail.com>",
+  "license": "MIT",
+  "source": "index.html",
+  "scripts": {
+    "deploy": ""
+  },
+  "browserslist": "> 0.25%"
+}

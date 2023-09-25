@@ -1,0 +1,171 @@
+/* * * * * * * FALLBACKS * * * * * * */
+
+// FLEX
+
+@mixin build-flex($direction, $justify-content, $align-items){
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: $direction;
+        -ms-flex-direction: $direction;
+            flex-direction: $direction;
+    -webkit-box-pack: $justify-content;
+    -webkit-justify-content: $justify-content;
+        -ms-flex-pack: $justify-content;
+            justify-content: $justify-content;
+    -webkit-box-align: $align-items;
+    -webkit-align-items: $align-items;
+        -ms-flex-align: $align-items;
+            align-items: $align-items;
+};
+
+// OPACITY
+
+@mixin opacity($opacity) {
+    opacity: $opacity;
+    $opacity-ie: $opacity * 100;
+    filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+// TRANSITIONS
+
+@mixin transition($args...) {
+    -webkit-transition: $args;
+    -moz-transition: $args;
+    -ms-transition: $args;
+    -o-transition: $args;
+    transition: $args;
+}
+
+// ANIMATIONS
+
+@mixin animation($args...) {
+    -webkit-animation: $args;
+    -moz-animation: $args;
+    -ms-animation: $args;
+    -o-animation: $args;
+    animation: $args;
+}
+
+// KEYFRAMES
+
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+       @content;
+    }
+    @-ms-keyframes #{$name} {
+       @content;
+    }
+    @-o-keyframes #{$name} {
+       @content;
+    }
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+// LINEAR GRADIENT
+
+@mixin linear-gradient($grad...){
+    background: -webkit-linear-gradient($grad);
+    background: linear-gradient($grad);
+}
+
+
+/* * * * * * * RESPONSIVE * * * * * * */
+
+// MOBILE MEDIA QUERY
+
+@mixin mobile {
+    @media screen and (max-width: $mobile-screen) {
+        @content;       
+    }
+}
+
+// LARGE MEDIA QUERY
+
+@mixin large {
+    @media screen and (min-width: $large-screen) {
+        @content;       
+    }
+}
+
+// GET MOBILE
+
+@mixin gm($property, $value) {
+    #{$property}: $value;
+    
+    @include mobile {
+        #{$property}: gmob($value);
+    }
+
+    @include large {
+        #{$property}: glrg($value);
+    }
+}
+
+@function gmob($args){
+    $val: 0;
+    $result: null;
+
+    @each $v in $args {
+        @if type-of($v) == 'number'{
+            $val: $v * $mobile-ratio;
+        } @else {
+            $val: $v;
+        }
+        $result: append($result, $val);
+    }
+    @return $result;
+}
+
+@function glrg($args){
+    $val: 0;
+    $result: null;
+
+    @each $v in $args {
+        @if type-of($v) == 'number'{
+            $val: $v * $large-ratio;
+        } @else {
+            $val: $v;
+        }
+        $result: append($result, $val);
+    }
+    @return $result;
+}
+
+/* * * * * * * SITE-BUILDING * * * * * * */
+
+@mixin build-typo(){
+    @for $i from 1 through 4 {
+        $size: $text-size;
+        
+        $line: $line-height - 1;
+
+        @for $j from $i through 4 {
+            $size: $header-ratio * $size;
+            $line: $line / $header-ratio;
+        }
+
+        h#{$i} {
+            @include gm(font-size, $size);
+            line-height: $line + 1;
+        }
+    }
+}
+
+@mixin background($url) {
+    background-color: rgba(0,0,0,0);
+    background: url("#{$url}") center no-repeat;
+    background-size: cover;
+}
+

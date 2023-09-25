@@ -1,0 +1,724 @@
+@import "_reset.scss";
+
+//Zmienne i mixy
+@import "_variables.scss";
+@import "_mixins.scss";
+
+//Ikony
+@import "_icons.scss";
+
+//Style globalne
+@import "_globals.scss";
+
+body {
+  background-color: $sea;
+
+  * {
+    color: white;
+  }
+
+  div#big-white-bg {
+    @include transition(opacity .3s);
+    background: white;
+    height: 300vh;
+    opacity: 0;
+    position: absolute;
+    top: -300vh;
+    width: 100vw;
+    z-index: 100;
+  }
+
+  ul.lang {
+    @include gm(font-size, 12px);
+    @include gm(padding-left, .66em);
+    position: absolute;
+    top: calc(120px - 36px);
+    right: 5vw;
+    text-align: center;
+    z-index: 10;
+
+    @media screen and (max-width: 920px) {
+      top: 0;
+      left: 0;
+      right: 0;
+      top: 0;
+    }
+
+    @include mobile {
+      margin: 10px auto;
+    }
+
+    @include large {
+      top: calc(180px - 54px);
+    }
+
+    li {
+      letter-spacing: .5em;
+      display: inline-block;
+      color: black;
+      cursor: pointer;
+    }
+  }
+
+  header {
+    background-color: white;
+    font-size: 1rem;
+
+    h1 {
+      color: tomato;
+      position: relative;
+      top: 32px;
+      font-size: 15rem;
+      word-spacing: .1em;
+      letter-spacing: -.09em;
+      line-height: 1;
+      text-align: center;
+
+      @include mobile {
+        top: 16px;
+        font-size: 7.5em
+      }
+
+      @include large {
+        top: 48px;
+        font-size: 22.5em;
+      }
+    }
+
+    h6 {
+      position: absolute;
+      font-family: $merriweather;
+    }
+
+    &.small {
+      h1 {
+        z-index: 1000;
+      }
+    }
+  }
+
+  div#home-octo {
+    @include gm(min-height, 360px);
+    @include gm(min-width, 360px);
+    height: 28vw;
+    width: 28vw;
+    position: relative;
+    top: -50px;
+    margin: 0 auto -50px;
+    overflow: hidden;
+
+    @include mobile {
+      top: -25px;
+      margin-bottom: -25px;
+    }
+
+    img {
+      @include animation(anim 3s infinite steps(48));
+/*       @include gm(min-height, 280px); */
+      height: 100%;
+    }
+  }
+
+  section#timeline {
+    margin-top: 25vh;
+    position: relative;
+/*     overflow: hidden; */
+
+    svg {
+      height: 100%;
+      left: 0;
+      right: 0;
+      width: 100%;
+      margin: auto;
+      position: absolute;
+
+      path#line {
+        @include gm(stroke-width, 3px);
+        @include gm(stroke-dasharray, 6 10);
+        fill: none;
+        stroke: tomato;
+      }
+    }
+
+    .circle-bg {
+      border-radius: 1000vw;
+    }
+
+    div.summer-parent {
+      @include gm(min-height, 110px);
+      @include gm(min-width, 141px);
+      height: 11vw;
+      width: 14.1vw;
+      margin: auto;
+      position: relative;
+
+      > * {
+        position: absolute;
+      }
+
+      h5 {
+        @include gm(top, -14px);
+        @include gm(left, 10px);
+        margin: 0;
+        right: 0;
+      }
+
+      img#summer-bg {
+        height: 100%;
+        width: 100%;
+      }
+
+      img#summer {
+        height: 49%;
+        width: 36%;
+        left: 32%;
+        bottom: 8%;
+      }
+    }
+
+    article {
+      @include gm(margin, 50px auto);
+      background-color: white;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 10;
+
+      * {
+        color: black;
+      }
+
+      &.rectangle {
+        @include gm(max-width, 540px);
+        @include gm(padding, 115px 50px 100px);
+
+        h3 {
+          @include gm(max-width, 360px);
+        }
+      }
+
+      &.circle {
+        @include gm(max-width, 400px);
+        @include gm(max-height, 400px);
+        @include gm(margin-top, -200px);
+        width: 100vw;
+        height: 100vw;
+        min-width: 190px;
+        min-height: 190px;
+        border-radius: 100vw;
+
+        h3 {
+          @include gm(max-width, 350px);
+          padding-top: 38%;
+        }
+      }
+    }
+
+    section#projects {
+      @include gm(min-height, 500px);
+      @include gm(margin-top, -225px);
+      @include gm(padding, 225px 0 275px);
+      background-color: $beige;
+      overflow: hidden;
+
+      section.project {
+        @include gm(min-height, 40px);
+        @include gm(min-width, 40px);
+        height: 4vw;
+        width: 4vw;
+        position: relative;
+        margin: auto;
+
+        a {
+          height: 100%;
+          position: relative;
+          z-index: 10;
+        }
+
+        > div {
+          @include transition(transform .15s);
+          position: absolute;
+          margin: auto;
+          top: 0;
+          right: -1000vw;
+          bottom: 0;
+          left: -1000vw;
+          cursor: pointer;
+        }
+
+        div.project-bg {
+          @include gm(min-height, 1000px);
+          @include gm(min-width, 1000px);
+          @include transition(transform .15s, background-color .15s .15s);
+          width: 160vw;
+          height: 160vw;
+          max-width: 160vh;
+          max-height: 160vh;
+          transform: scale(0.075);
+          background-color: tomato;
+
+          div.circle-bg {
+            @include transition(opacity .15s .15s);
+            background-color: white;
+            height: 66%;
+            margin: 17%;
+            width: 66%;
+          }
+        }
+
+        div.circle {
+          @include gm(min-height, 430px);
+          @include gm(min-width, 430px);
+          width: 70vw;
+          height: 70vw;
+          max-width: 70vh;
+          max-height: 70vh;
+          transform: scale(0.05);
+          font-size: 1vw;
+
+          &.pop {
+            @include animation(pop 2s infinite);
+
+            &.unclickable {
+              @include animation(none);
+            }
+          }
+
+          > * {
+            transform: scale(0);
+            display: block;
+            position: relative;
+            margin: auto;
+          }
+
+          img.banner {
+            left: -20%;
+            top: 30%;
+            width: 140%;
+          }
+
+          h2.title {
+            color: black;
+            text-align: center;
+            font-size: 16em;
+            top: -4%;
+          }
+
+          h4.subtitle {
+            width: 70%;
+            line-height: 1.5;
+            letter-spacing: .33em;
+            top: 3%;
+          }
+
+          ul.icons {
+            top: 12%;
+
+            li:first-child,
+            li:last-child {
+              @include gm(font-size, 28px);
+              @include gm(margin, 0 5px);
+              vertical-align: top;
+            }
+          }
+
+          a.subtitle {
+            @include gm(height, 12px);
+            margin: 0 auto;
+            text-decoration: underline;
+            top: 15%;
+          }
+        }
+
+        div.rectangle {
+          @include gm(height, 360px);
+          opacity: 0;
+          z-index: -1;
+        }
+        
+        &.large {
+          z-index: 100;
+
+          div.project-bg {
+            @include transition(transform .15s, background-color 0s);
+            transform: scale(2);
+            background-color: transparentize($darksea, 0.2);
+
+            div.circle-bg {
+              @include transition(opacity 0s);
+              opacity: 0;
+            }
+          }
+
+          div.project-number {
+            @include transition(opacity 0s);
+            opacity: 0;
+            z-index: -100;
+          }
+
+          div.circle {
+            cursor: initial;
+            transform: scale(1);
+
+            > * {
+              transform: scale(1);  
+            }
+          }
+        }
+
+        &#loudnesswar {
+          div.circle,
+          div.rectangle {
+            background-color: $darkblue;
+            font-size: .8125vw;
+
+            h2.title {
+              top: -1%;
+              margin-bottom: 4%;
+            }
+          }
+        }
+
+        &#maxima {
+          div.circle,
+          div.rectangle {
+            background-color: $purple;
+          }
+        }
+
+        &#taoyin {
+          div.circle,
+          div.rectangle {
+            background-color: tomato;
+          }
+        }
+
+        &#jestemkrzys {
+          div.circle,
+          div.rectangle {
+            background-color: $sea;
+          }
+        }
+      }
+        
+      div.octo-parent {
+        @include gm(min-width, 160px);
+        @include gm(min-height, 160px);
+        @include gm(margin, 10px auto);
+        height: 16vw;
+        width: 16vw;
+        background-color: $sea;
+        position: relative;
+
+        &:nth-of-type(odd){
+          left: 30vw;
+        }
+
+        &:nth-of-type(even){
+          right: 30vw;
+        }
+
+        &:first-of-type {
+          left: 20vw;
+        }
+
+        &:last-of-type {
+          &:nth-of-type(even) {
+            right: 20vw;
+          }
+
+          &:nth-of-type(odd) {
+            left: 20vw;
+          }
+        }
+
+        div {
+          @include gm(min-width, 170px);
+          @include gm(min-height, 170px);
+          width: 17vw;
+          height: 17vw;
+/*           width: 100%;
+          height: 100%; */
+
+          overflow: hidden;
+          position: relative;
+
+          img {
+            @include animation(anim 3s steps(48) infinite);
+            height: 100%;
+          }
+        }
+
+        &:nth-of-type(1) {
+          div {
+/*             @include gm(min-width, 82px);
+            @include gm(min-height, 170px);
+            width: 8.2vw;
+            height: 17vw; */
+            top: -2%;
+            left: -6%;
+          }
+        }
+
+        &:nth-of-type(2) {
+          div {
+/*             @include gm(min-width, 110px);
+            @include gm(min-height, 165px);
+            width: 11vw;*/
+            top: -2%;
+            left: 0%;
+          }
+        }
+
+        &:nth-of-type(3) {
+          div {
+/*             @include gm(min-width, 127px);
+            @include gm(min-height, 165px);
+            width: 12.7vw;
+            height: 16.5vw; */
+            left: 7%;
+            top: -2%;
+          }
+        }
+
+        &:nth-of-type(4) {
+          div {
+/*             @include gm(min-width, 88px);
+            @include gm(min-height, 155px);
+            width: 8.8vw;
+            height: 15.5vw; */
+            left: 3%;
+            top: -3%;
+          }
+        }
+
+        &:nth-of-type(5) {
+          div {
+/*             @include gm(min-width, 160px);
+            @include gm(min-height, 160px);
+            width: 16vw;
+            height: 16vw; */
+            left: 0%;
+            top: -2%;
+/* 
+            img {
+              width: 100%;
+            } */
+          }
+        }
+
+        &:nth-of-type(6) {
+          div {
+/*             @include gm(min-width, 68px);
+            @include gm(min-height, 170px);
+              width: 6.8vw;
+            height: 17vw; */
+            left: -4%;
+            top: -2%;
+          }
+        }
+      }
+    }
+  }
+
+  blockquote.description {
+    @include gm(margin, 80px auto 0);
+    @include gm(font-size, 30px);
+    @include gm(max-width, 820px);
+    width: 90vw;
+    font-style: italic;
+/*     position: relative;
+    quotes: "”" "”" "‘" "’";
+
+
+    &:before,
+    &:after {
+      @include gm(font-size, 80px);
+      color: $beige;
+      line-height: 0;
+      position: absolute;
+      z-index: -10;
+    }
+
+    &:before {
+      content: open-quote;
+      bottom: -55%;
+      left: -15%;
+    }
+
+    &:after {
+      content: close-quote;
+      top: -7%;
+      right: -13%;
+    } */
+  }
+
+  small.author {
+    @include gm(max-width, 560px);
+    display: block;
+    opacity: 0.5;
+    text-align: right;
+  }
+
+  .finish {
+    position: relative;
+    z-index: 10;
+  }
+    
+  h3.finish {
+    @include gm(max-width, 480px);
+    @include gm(margin-top, 150px);
+    width: 90vw;
+  }
+
+  div#deepsea {
+    @include gm(min-height, 480px);
+    @include gm(margin-top, -150px);
+    height: 48vw;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    z-index: -10;
+
+    & > * {
+      position: relative;
+      display: inline-block;
+
+      &#crab {
+        @include gm(min-width, 60px);
+        left: -10vw;;
+        width: 6vw;
+        top: -27%;
+      }
+
+      &#star {
+        @include gm(min-height, 450px);
+        @include gm(min-width, 250px);
+        height: 45vw;
+        width: 25vw;
+        top: -22%;
+        overflow: hidden;
+        z-index: 10;
+
+        img {
+          @include animation(anim 10s infinite steps(288));
+          height: 100%;
+        }
+      }
+
+/*       &#farts {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        left: 0;
+        right: 0;
+        margin: auto;
+
+        div {
+          border: 1px solid white;
+          width: 4px;
+          height: 4px;
+          position: absolute;
+          border-radius: 100%;
+          left: 0;
+          right: 0;
+          margin: auto;
+          top: 53%;
+        }
+
+        div:nth-of-type(2) {
+          @include animation(fart-up 10s linear .05s);
+          
+        }
+
+        div:nth-of-type(3) {
+          @include animation(fart-up 1s linear .1s);
+        }
+      } */
+
+      &#shell {
+        @include gm(min-width, 40px);
+        right: -10vw;
+        width: 4vw;
+        top: -32%;
+      }
+
+      &#seahorse {
+        @include gm(left, 300px);
+        @include gm(min-height, 50px);
+        height: 5vw;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 5%;
+      }
+
+      &#treasure {
+        @include gm(margin-bottom, 120px);
+        bottom: 21%;
+        min-width: 140px;
+        left: -1%;
+        position: absolute;
+        width: 37vw;
+        z-index: -1;
+      }
+
+      &#shipwreck {
+        @include gm(margin-bottom, 110px);
+        bottom: 21%;
+        min-width: 140px;
+        position: absolute;
+        right: -1%;
+        width: 38vw;
+        z-index: -1;
+      }
+
+      &#sand {
+        @include gm(min-width, 800px);
+        position: absolute;
+        width: 100vw;
+        left: -500vw;
+        right: -500vw;
+        top: 44%;
+        margin: auto;
+        z-index: -1;
+      }
+    }
+  }
+
+  @import "_footer.scss";
+}
+
+@include keyframes(pop) {
+  0% {
+    transform: scale(0.05);
+  }
+  5% {
+    transform: scale(0.04);
+  }
+  10% {
+    transform: scale(0.06);
+  }
+  15% {
+    transform: scale(0.04);
+  }
+  20% {
+    transform: scale(0.055);
+  }
+  25% {
+    transform: scale(0.05);
+  }
+}
+
+////////////////////////////////////////////////////////
+
+@include keyframes(anim){
+  100% {
+    transform: translateX(-100%);
+  }
+}  
+
+@include keyframes(fart-up){
+  100% {
+    transform: translateY(1000%);
+  }
+}

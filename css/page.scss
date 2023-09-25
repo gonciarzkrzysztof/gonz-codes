@@ -1,0 +1,182 @@
+@import "_reset.scss";
+
+//Zmienne i mixy
+@import "_variables.scss";
+@import "_mixins.scss";
+
+//Ikony
+@import "_icons.scss";
+
+//Style globalne
+@import "_globals.scss";
+
+html body {
+  header {
+    background-color: white;
+    font-size: 1rem;
+
+    h1 {
+      color: tomato;
+      position: relative;
+      top: 12px;
+      font-size: 5.625rem;
+      word-spacing: .1em;
+      letter-spacing: -.09em;
+      line-height: 1;
+      text-align: center;
+      z-index: 1;
+
+      @include mobile {
+        top: 8px;
+        font-size: 3.75em;
+      }
+
+      @include large {
+        top: 16px;
+        font-size: 7.5em;
+      }
+    }
+  }
+
+  section.project {
+    @include gm(height, 360px);
+    min-height: 20vw;
+    position: relative;
+    margin: auto;
+    background: aqua;
+    overflow: hidden;
+
+    ~ * {
+      @include animation(show 1s both);
+    }
+
+    div.circle {
+      @include gm(min-height, 400px);
+      @include gm(min-width, 400px);
+      width: 70vw;
+      height: 70vw;
+      max-width: 70vh;
+      max-height: 70vh;
+      font-size: 1vw;
+      position: absolute;
+      margin: auto;
+      top: 0;
+      right: -1000vw;
+      bottom: 0;
+      left: -1000vw;
+
+      > * {
+        display: block;
+        position: relative;
+        margin: auto;
+      }
+
+      img.banner {
+        left: -20%;
+        top: 30%;
+        width: 140%;
+      }
+
+      h2.title {
+        @include gm(font-size, 123px);
+        color: black;
+        text-align: center;
+        top: -4%;
+      }
+
+      ul.icons {
+        top: 12%;
+        transform: translateY(-80%);
+        color: white;
+
+        li:first-child,
+        li:last-child {
+          @include gm(font-size, 28px);
+          @include gm(margin, 0 5px);
+          vertical-align: top;
+        }
+      }
+    }
+
+    &#loudnesswar {
+      background-color: $darkblue;
+      
+      div.circle {  
+        font-size: .8125vw;
+
+        h2.title {
+          @include gm(font-size, 100px);
+          top: -1%;
+          margin-bottom: 4%;
+        }
+      }
+    }
+
+    &#maxima {
+      background-color: $purple;
+    }
+
+    &#taoyin {
+      background-color: tomato;
+    }
+
+    &#jestemkrzys {
+      background-color: $sea;
+    }
+  }
+
+  section.skills {
+    @include gm(margin, 48px auto);
+
+    ul {
+      @include gm(margin, 3px auto);
+      @include gm(font-size, 100%);
+      text-align: center;
+
+      li {
+        @extend .subtitle;
+        display: inline-block;
+        letter-spacing: .33em;
+        margin: 0 auto;
+      }
+
+      li.tools {
+        display: block;
+        
+        ul {
+          color: $grey;
+        }
+      }
+    }
+  }
+
+  p.description {
+    @include gm(font-size, 14px);
+    @include gm(margin, 48px auto);
+    @include gm(max-width, 840px);
+    @include gm(text-indent, 36px);
+    line-height: 1.6;
+    text-align: justify;
+    width: 80vw;
+  }
+
+  > img {
+    @include gm(margin, 72px auto 96px);
+    @include gm(max-width, 840px);
+    display: block;
+    width: 80vw;
+  }
+
+  @import "_footer.scss";
+
+  footer {
+    @include gm(margin-top, 144px);
+  }
+}
+      
+// ANIMACJE
+
+@include keyframes(show){
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

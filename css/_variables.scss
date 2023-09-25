@@ -1,0 +1,39 @@
+//MEDIA
+
+$mobile-screen: 650px;
+$mobile-ratio: .7;
+
+$large-screen: 1900px;
+$large-ratio: 1.5;
+
+//KOLORY
+
+$beige: #fff0e4;
+$sea: #4ddac9;
+$darksea: #1b8075;
+$orange: #ffb57b;
+$purple: #8433c9;
+$darkblue: #041450;
+$grey: #aaa;
+
+//TYPOGRAFIA
+
+//--->rozmiary
+
+$text-size: 1rem;
+$halfs: 0.3125 * $text-size;
+$line-height: 1.7;
+$letter-spacing: 0em;
+$text-measure: 36 * $text-size;
+$header-ratio: 1.414;
+
+//--->czcionki
+$amatic: 'Amatic SC', cursive;
+$merriweather: 'Merriweather', serif;
+$lato: 'Lato', sans-serif;
+
+//STYLE
+
+//--->borders
+
+//--->shadows

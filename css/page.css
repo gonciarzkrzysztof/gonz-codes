@@ -1,0 +1,475 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol, ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+/* * * * * * * FALLBACKS * * * * * * */
+/* * * * * * * RESPONSIVE * * * * * * */
+/* * * * * * * SITE-BUILDING * * * * * * */
+@font-face {
+  font-family: 'icomoon';
+  src: url("../fonts/icomoon.eot?zdjq4o");
+  src: url("../fonts/icomoon.eot?zdjq4o#iefix") format("embedded-opentype"), url("../fonts/icomoon.ttf?zdjq4o") format("truetype"), url("../fonts/icomoon.woff?zdjq4o") format("woff"), url("../fonts/icomoon.svg?zdjq4o#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.icon-behance:before {
+  content: "\e900"; }
+
+.icon-dribbble:before {
+  content: "\e901"; }
+
+.icon-linkedin:before {
+  content: "\e902"; }
+
+.icon-link:before {
+  content: "\e903"; }
+
+html body {
+  position: relative; }
+  html body .en {
+    display: none; }
+  html body.en *.en {
+    display: block; }
+  html body.en *.pl {
+    display: none;
+    opacity: 0; }
+  html body.en ul.lang li {
+    opacity: 0.33; }
+    html body.en ul.lang li#en {
+      opacity: 1; }
+  html body.pl *.pl {
+    display: block; }
+  html body.pl *.en {
+    display: none;
+    opacity: 0; }
+  html body.pl ul.lang li {
+    opacity: 0.33; }
+    html body.pl ul.lang li#pl {
+      opacity: 1; }
+  html body a {
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    width: 100%; }
+    html body a:visited, html body a:hover, html body a:link, html body a:active {
+      color: inherit; }
+  html body .title,
+  html body .subtitle,
+  html body section.skills ul li,
+  html body .description {
+    text-align: center;
+    margin: 0 auto; }
+  html body .title {
+    font-family: "Amatic SC", cursive; }
+  html body .subtitle, html body section.skills ul li {
+    font-size: 12px;
+    max-width: 455px;
+    font-family: "Lato", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .66em;
+    margin: 2.5em auto; }
+    @media screen and (max-width: 650px) {
+      html body .subtitle, html body section.skills ul li {
+        font-size: 8.4px; } }
+    @media screen and (min-width: 1900px) {
+      html body .subtitle, html body section.skills ul li {
+        font-size: 18px; } }
+    @media screen and (max-width: 650px) {
+      html body .subtitle, html body section.skills ul li {
+        max-width: 318.5px; } }
+    @media screen and (min-width: 1900px) {
+      html body .subtitle, html body section.skills ul li {
+        max-width: 682.5px; } }
+  html body .description {
+    font-size: 20px;
+    max-width: 455px;
+    font-family: "Merriweather", serif;
+    letter-spacing: .02em;
+    line-height: 1.25;
+    word-spacing: 0.2em; }
+    @media screen and (max-width: 650px) {
+      html body .description {
+        font-size: 14px; } }
+    @media screen and (min-width: 1900px) {
+      html body .description {
+        font-size: 30px; } }
+    @media screen and (max-width: 650px) {
+      html body .description {
+        max-width: 318.5px; } }
+    @media screen and (min-width: 1900px) {
+      html body .description {
+        max-width: 682.5px; } }
+  html body em {
+    font-weight: 900;
+    font-style: italic; }
+  html body sup {
+    color: #0645ad;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 75%;
+    vertical-align: super; }
+  html body ul.icons {
+    text-align: center; }
+    html body ul.icons li {
+      font-size: 42px;
+      margin: 0 15px;
+      display: inline-block; }
+      @media screen and (max-width: 650px) {
+        html body ul.icons li {
+          font-size: 29.4px; } }
+      @media screen and (min-width: 1900px) {
+        html body ul.icons li {
+          font-size: 63px; } }
+      @media screen and (max-width: 650px) {
+        html body ul.icons li {
+          margin: 0 10.5px; } }
+      @media screen and (min-width: 1900px) {
+        html body ul.icons li {
+          margin: 0 22.5px; } }
+
+html body header {
+  background-color: white;
+  font-size: 1rem; }
+  html body header h1 {
+    color: tomato;
+    position: relative;
+    top: 12px;
+    font-size: 5.625rem;
+    word-spacing: .1em;
+    letter-spacing: -.09em;
+    line-height: 1;
+    text-align: center;
+    z-index: 1; }
+    @media screen and (max-width: 650px) {
+      html body header h1 {
+        top: 8px;
+        font-size: 3.75em; } }
+    @media screen and (min-width: 1900px) {
+      html body header h1 {
+        top: 16px;
+        font-size: 7.5em; } }
+html body section.project {
+  height: 360px;
+  min-height: 20vw;
+  position: relative;
+  margin: auto;
+  background: aqua;
+  overflow: hidden; }
+  @media screen and (max-width: 650px) {
+    html body section.project {
+      height: 252.0px; } }
+  @media screen and (min-width: 1900px) {
+    html body section.project {
+      height: 540px; } }
+  html body section.project ~ * {
+    -webkit-animation: show 1s both;
+    -moz-animation: show 1s both;
+    -ms-animation: show 1s both;
+    -o-animation: show 1s both;
+    animation: show 1s both; }
+  html body section.project div.circle {
+    min-height: 400px;
+    min-width: 400px;
+    width: 70vw;
+    height: 70vw;
+    max-width: 70vh;
+    max-height: 70vh;
+    font-size: 1vw;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: -1000vw;
+    bottom: 0;
+    left: -1000vw; }
+    @media screen and (max-width: 650px) {
+      html body section.project div.circle {
+        min-height: 280px; } }
+    @media screen and (min-width: 1900px) {
+      html body section.project div.circle {
+        min-height: 600px; } }
+    @media screen and (max-width: 650px) {
+      html body section.project div.circle {
+        min-width: 280px; } }
+    @media screen and (min-width: 1900px) {
+      html body section.project div.circle {
+        min-width: 600px; } }
+    html body section.project div.circle > * {
+      display: block;
+      position: relative;
+      margin: auto; }
+    html body section.project div.circle img.banner {
+      left: -20%;
+      top: 30%;
+      width: 140%; }
+    html body section.project div.circle h2.title {
+      font-size: 123px;
+      color: black;
+      text-align: center;
+      top: -4%; }
+      @media screen and (max-width: 650px) {
+        html body section.project div.circle h2.title {
+          font-size: 86.1px; } }
+      @media screen and (min-width: 1900px) {
+        html body section.project div.circle h2.title {
+          font-size: 184.5px; } }
+    html body section.project div.circle ul.icons {
+      top: 12%;
+      transform: translateY(-80%);
+      color: white; }
+      html body section.project div.circle ul.icons li:first-child,
+      html body section.project div.circle ul.icons li:last-child {
+        font-size: 28px;
+        margin: 0 5px;
+        vertical-align: top; }
+        @media screen and (max-width: 650px) {
+          html body section.project div.circle ul.icons li:first-child,
+          html body section.project div.circle ul.icons li:last-child {
+            font-size: 19.6px; } }
+        @media screen and (min-width: 1900px) {
+          html body section.project div.circle ul.icons li:first-child,
+          html body section.project div.circle ul.icons li:last-child {
+            font-size: 42px; } }
+        @media screen and (max-width: 650px) {
+          html body section.project div.circle ul.icons li:first-child,
+          html body section.project div.circle ul.icons li:last-child {
+            margin: 0 3.5px; } }
+        @media screen and (min-width: 1900px) {
+          html body section.project div.circle ul.icons li:first-child,
+          html body section.project div.circle ul.icons li:last-child {
+            margin: 0 7.5px; } }
+  html body section.project#loudnesswar {
+    background-color: #041450; }
+    html body section.project#loudnesswar div.circle {
+      font-size: .8125vw; }
+      html body section.project#loudnesswar div.circle h2.title {
+        font-size: 100px;
+        top: -1%;
+        margin-bottom: 4%; }
+        @media screen and (max-width: 650px) {
+          html body section.project#loudnesswar div.circle h2.title {
+            font-size: 70px; } }
+        @media screen and (min-width: 1900px) {
+          html body section.project#loudnesswar div.circle h2.title {
+            font-size: 150px; } }
+  html body section.project#maxima {
+    background-color: #8433c9; }
+  html body section.project#taoyin {
+    background-color: tomato; }
+  html body section.project#jestemkrzys {
+    background-color: #4ddac9; }
+html body section.skills {
+  margin: 48px auto; }
+  @media screen and (max-width: 650px) {
+    html body section.skills {
+      margin: 33.6px auto; } }
+  @media screen and (min-width: 1900px) {
+    html body section.skills {
+      margin: 72px auto; } }
+  html body section.skills ul {
+    margin: 3px auto;
+    font-size: 100%;
+    text-align: center; }
+    @media screen and (max-width: 650px) {
+      html body section.skills ul {
+        margin: 2.1px auto; } }
+    @media screen and (min-width: 1900px) {
+      html body section.skills ul {
+        margin: 4.5px auto; } }
+    @media screen and (max-width: 650px) {
+      html body section.skills ul {
+        font-size: 70%; } }
+    @media screen and (min-width: 1900px) {
+      html body section.skills ul {
+        font-size: 150%; } }
+    html body section.skills ul li {
+      display: inline-block;
+      letter-spacing: .33em;
+      margin: 0 auto; }
+    html body section.skills ul li.tools {
+      display: block; }
+      html body section.skills ul li.tools ul {
+        color: #aaa; }
+html body p.description {
+  font-size: 14px;
+  margin: 48px auto;
+  max-width: 840px;
+  text-indent: 36px;
+  line-height: 1.6;
+  text-align: justify;
+  width: 80vw; }
+  @media screen and (max-width: 650px) {
+    html body p.description {
+      font-size: 9.8px; } }
+  @media screen and (min-width: 1900px) {
+    html body p.description {
+      font-size: 21px; } }
+  @media screen and (max-width: 650px) {
+    html body p.description {
+      margin: 33.6px auto; } }
+  @media screen and (min-width: 1900px) {
+    html body p.description {
+      margin: 72px auto; } }
+  @media screen and (max-width: 650px) {
+    html body p.description {
+      max-width: 588px; } }
+  @media screen and (min-width: 1900px) {
+    html body p.description {
+      max-width: 1260px; } }
+  @media screen and (max-width: 650px) {
+    html body p.description {
+      text-indent: 25.2px; } }
+  @media screen and (min-width: 1900px) {
+    html body p.description {
+      text-indent: 54px; } }
+html body > img {
+  margin: 72px auto 96px;
+  max-width: 840px;
+  display: block;
+  width: 80vw; }
+  @media screen and (max-width: 650px) {
+    html body > img {
+      margin: 50.4px auto 67.2px; } }
+  @media screen and (min-width: 1900px) {
+    html body > img {
+      margin: 108px auto 144px; } }
+  @media screen and (max-width: 650px) {
+    html body > img {
+      max-width: 588px; } }
+  @media screen and (min-width: 1900px) {
+    html body > img {
+      max-width: 1260px; } }
+html body footer {
+  margin-top: -92px; }
+  @media screen and (max-width: 650px) {
+    html body footer {
+      margin-top: -64.4px; } }
+  @media screen and (min-width: 1900px) {
+    html body footer {
+      margin-top: -138px; } }
+  html body footer * {
+    color: #1b8075; }
+  html body footer ul.icons li {
+    font-size: 28px;
+    font-size: 28px;
+    margin: 5px 10px; }
+    @media screen and (max-width: 650px) {
+      html body footer ul.icons li {
+        font-size: 19.6px; } }
+    @media screen and (min-width: 1900px) {
+      html body footer ul.icons li {
+        font-size: 42px; } }
+    @media screen and (max-width: 650px) {
+      html body footer ul.icons li {
+        margin: 3.5px 7px; } }
+    @media screen and (min-width: 1900px) {
+      html body footer ul.icons li {
+        margin: 7.5px 15px; } }
+  html body footer small.subtitle {
+    margin: 5px auto;
+    display: block; }
+    @media screen and (max-width: 650px) {
+      html body footer small.subtitle {
+        margin: 3.5px auto; } }
+    @media screen and (min-width: 1900px) {
+      html body footer small.subtitle {
+        margin: 7.5px auto; } }
+    html body footer small.subtitle:last-of-type {
+      margin-bottom: 20px; }
+      @media screen and (max-width: 650px) {
+        html body footer small.subtitle:last-of-type {
+          margin-bottom: 14px; } }
+      @media screen and (min-width: 1900px) {
+        html body footer small.subtitle:last-of-type {
+          margin-bottom: 30px; } }
+html body footer {
+  margin-top: 144px; }
+  @media screen and (max-width: 650px) {
+    html body footer {
+      margin-top: 100.8px; } }
+  @media screen and (min-width: 1900px) {
+    html body footer {
+      margin-top: 216px; } }
+
+@-webkit-keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-moz-keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-ms-keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@-o-keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes show {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/*# sourceMappingURL=page.css.map */

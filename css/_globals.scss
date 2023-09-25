@@ -1,0 +1,118 @@
+html {
+    body {
+        position: relative;
+
+          .en {
+            display: none;
+          }
+
+          &.en {
+            *.en {
+              display: block;
+            }
+
+            *.pl {
+              display: none;
+              opacity: 0;
+            }
+
+            ul.lang{
+              li {
+                opacity: 0.33;
+
+                &#en {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+
+          &.pl {
+            *.pl {
+              display: block;
+            }
+
+            *.en {
+              display: none;
+              opacity: 0;
+            }
+
+            ul.lang{
+              li {
+                opacity: 0.33;
+
+                &#pl {
+                  opacity: 1;
+                }
+              }
+            }
+          }
+  
+        a {
+            &:visited,
+            &:hover,
+            &:link,
+            &:active {
+                color: inherit;
+            }
+
+            cursor: pointer;
+            display: inline-block;
+            text-align: center;
+            text-decoration: none;
+            width: 100%;
+        }
+
+        .title,
+        .subtitle,
+        .description {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-family: $amatic;
+        }
+
+        .subtitle {
+            @include gm(font-size, 12px);
+            @include gm(max-width, 455px);
+            font-family: $lato;
+            text-transform: uppercase;
+            letter-spacing: .66em;
+            margin: 2.5em auto;
+        }
+
+        .description {
+            @include gm(font-size, 20px);
+            @include gm(max-width, 455px);
+            font-family: $merriweather;
+            letter-spacing: .02em;
+            line-height: 1.25;
+            word-spacing: 0.2em;
+        }
+
+        em {
+            font-weight: 900;
+            font-style: italic;
+        }
+
+        sup {
+            color: #0645ad;
+            cursor: pointer;
+            font-family: sans-serif;
+            font-size: 75%;
+            vertical-align: super;
+        }
+
+        ul.icons {
+            text-align: center;
+            
+            li {
+                @include gm(font-size, 42px);
+                @include gm(margin, 0 15px);
+                display: inline-block;
+            }
+        }
+    }
+}

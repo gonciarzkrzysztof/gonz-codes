@@ -1,0 +1,25 @@
+footer {
+  @include gm(margin-top, -92px);
+
+  * {
+    color: $darksea;
+  }
+
+  ul.icons {
+    li {
+      font-size: 28px;
+      @include gm(font-size, 28px);
+      @include gm(margin, 5px 10px);
+    }
+
+  }
+
+  small.subtitle {
+    @include gm(margin, 5px auto);
+    display: block;
+
+    &:last-of-type {
+      @include gm(margin-bottom, 20px);
+    }
+  }
+}

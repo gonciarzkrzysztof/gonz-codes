@@ -34,25 +34,14 @@ function Main(props) {
       .catch(console.error);
   }, []);
 
-
-
-  const navEntries = [
-    ...projects,
-    "<br/>",
-    {
-      title: 'Changelog',
-      slug: 'changelog'
-    }
-  ];
-
   return (
     <main className="main">
       <LoadingAnimation className="layout--normal">
         <Wrapper className="layout--loose layout--leading-wide">
           <Intro />
-          <Nav entries={navEntries} />
+          <Nav entries={projects} />
           {projects.length > 0 && <Projects projects={projects} />}
-          <Changelog />
+          {/* <Changelog /> */}
         </Wrapper>
       </LoadingAnimation>
     </main>

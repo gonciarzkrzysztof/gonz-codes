@@ -13,23 +13,19 @@
   },
   "browserslist": "> 0.25%",
   "devDependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/core": "^7.16.7",
-    "@babel/preset-env": "^7.14.2",
-    "@babel/preset-react": "^7.13.13",
-    "@parcel/packager-raw-url": "^2.2.0",
-    "@parcel/transformer-jsonld": "^2.2.0",
-    "@parcel/transformer-sass": "^2.2.0",
-    "@parcel/transformer-webmanifest": "^2.2.0",
-    "cssnano": "^4.1.11",
-    "parcel": "^2.2.0",
-    "postcss": "^8.2.15"
+    "@babel/core": "^7.23.9",
+    "@parcel/packager-raw-url": "^2.11.0",
+    "@parcel/transformer-sass": "^2.11.0",
+    "@parcel/transformer-webmanifest": "^2.11.0",
+    "buffer": "^6.0.3",
+    "parcel": "^2.11.0",
+    "process": "^0.11.10"
   },
   "dependencies": {
-    "@sanity/client": "^2.21.7",
+    "@sanity/client": "^6.12.3",
     "assets": "^3.0.1",
     "components": "^0.1.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

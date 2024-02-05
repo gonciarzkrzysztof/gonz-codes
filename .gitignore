@@ -10,7 +10,6 @@
 # Parcel
 .cache/
 .parcel-cache/
-dist/
 
 # Node modules
 /node_modules

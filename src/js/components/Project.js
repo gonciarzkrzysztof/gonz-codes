@@ -1,14 +1,13 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Heading from './Heading';
 import Link from './Link';
 import Copy from './Copy';
-import Photo from './Photo';
-import Modal from './Modal';
-import sanityClient from "../sanityClient.js";
 import extractBlockContent from "../utils/extractBlockContent.js";
 
 function Project(props) {
   const { project } = props;
+  // const [isIntersecting, setIsIntersecting] = useState(false);
+  const iframe = useRef();
 
   for (let key in project.time) {
     let date = project.time[key];
@@ -16,6 +15,39 @@ function Project(props) {
   }
 
   const { startDate, endDate } = project.time;
+
+  // if (isIntersecting) {
+  //   const threshold = .2 * (innerHeight  - iframe.current.getBoundingClientRect().top - .5 * iframe.current.getBoundingClientRect().height) /* + iframe.current.contentWindow.scrollY */;
+
+  //   if (threshold) {
+  //     requestAnimationFrame(() => iframe.current.contentWindow.scrollTo(0, threshold));
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   const observer = new IntersectionObserver(
+  //     (entries, observer) => setIsIntersecting(entries[0].isIntersecting),
+  //     { threshold: 0 }
+  //   );
+
+  //   if (iframe.current) {
+  //     observer.observe(iframe.current);
+
+  //     const styleElement = iframe.current.contentDocument.createElement('style')
+  //     styleElement.innerText = 'a { cursor: not-allowed!important; }';
+  //     const aElements = [...iframe.current.contentDocument.querySelectorAll('a')];
+
+  //     aElements.map(a => a.addEventListener('click', e => e.preventDefault()));
+
+  //     iframe.current.contentDocument.head?.appendChild(styleElement);
+  //   }
+
+  //   return () => {
+  //     if (iframe.current) {
+  //       observer.unobserve(iframe.current);
+  //     }
+  //   }
+  // }, [iframe.current, isIntersecting]);
 
   return project && (
     <article id={project.slug.current} className={`project ${props.className || ''}`}>
@@ -36,7 +68,15 @@ function Project(props) {
         {extractBlockContent(project.description)}
       </Copy>
 
-      <Modal project={project} />
+      { project.title.trim() !== 'Brandfolks' && project.title.trim() !== 'Brevis' && (
+        <div className="project__preview">
+          {project.slug.current !== '' && <iframe className="project__iframe" ref={iframe} src={project.slug.current} width="860" height="540" loading="lazy"></iframe>}
+
+          <Link href={project.url}>
+            <Heading className="heading--2" tag="span">Click to open the live version</Heading>
+          </Link>
+        </div>
+      )}
     </article>
   )
 }

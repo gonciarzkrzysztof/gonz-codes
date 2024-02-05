@@ -3,35 +3,50 @@
   --link-translateX: var(--link-marker-width);
   --link-translateY: 0;
 
+  position: relative;
   display: inline-flex;
-  margin-left: calc(-1 * var(--link-marker-width));
-  padding-left: var(--link-marker-width);
+  // margin-left: calc(-1 * var(--link-marker-width));
+  // padding-left: var(--link-marker-width);
+  padding-right: var(--link-marker-width);
   color: inherit;
   overflow: hidden;
 
   @media (hover: hover) {
-    &,
-    &:before {
+    &__label, 
+    &:before,
+    &__external {
       transition: transform var(--duration-blink);
       will-change: transform;
     }
 
     &:hover,
     &:focus {
-      &,
-      &:before {
+      .link__label,
+      &:before,
+      .link__external {
         transform: translateX(var(--link-translateX)) translateY(var(--link-translateY));
       }
     }
   }
 
-  &:before {
-    content: '>';
+  &:before,
+  &__external {
     position: absolute;
-    top: 0;
-    right: 100%;
     width: var(--link-marker-width);
     font-weight: normal;
     text-decoration: none;
+  }
+  
+  &:before {
+    content: '>';
+    top: 0;
+    right: 100%;
+  }
+
+  &__external {
+    --link-translateY: calc(-1 * var(--link-translateX));
+    right: 0;
+    bottom: .2em;
+    padding-left: .1em;
   }
 }

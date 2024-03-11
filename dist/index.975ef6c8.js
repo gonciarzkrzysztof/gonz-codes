@@ -27461,7 +27461,6 @@ function Main(props) {
     const [projects, setProjects] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         (0, _sanityClientJsDefault.default).fetch(`*[_type == "project"]{
-          technologies[]->,
           'photo': photo.asset->,
           'html_file': html_file.asset->,
           'css_file': css_file.asset->,
@@ -27482,37 +27481,37 @@ function Main(props) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _introDefault.default), {}, void 0, false, {
                         fileName: "src/js/components/Main.js",
-                        lineNumber: 29,
+                        lineNumber: 28,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _navDefault.default), {
                         entries: projects
                     }, void 0, false, {
                         fileName: "src/js/components/Main.js",
-                        lineNumber: 30,
+                        lineNumber: 29,
                         columnNumber: 11
                     }, this),
                     projects.length > 0 && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _projectsDefault.default), {
                         projects: projects
                     }, void 0, false, {
                         fileName: "src/js/components/Main.js",
-                        lineNumber: 31,
+                        lineNumber: 30,
                         columnNumber: 35
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/components/Main.js",
-                lineNumber: 28,
+                lineNumber: 27,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/js/components/Main.js",
-            lineNumber: 27,
+            lineNumber: 26,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/Main.js",
-        lineNumber: 26,
+        lineNumber: 25,
         columnNumber: 10
     }, this);
 }

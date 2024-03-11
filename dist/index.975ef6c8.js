@@ -27614,7 +27614,7 @@ function Intro(props) {
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
                 photo: intro.photo,
-                width: "280",
+                width: "390",
                 alt: `Photo of the author.`
             }, void 0, false, {
                 fileName: "src/js/components/Intro.js",
@@ -27770,6 +27770,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function Link(props) {
     const isExternal = new URL(props.href, location.origin).origin !== location.origin;
+    isExternal;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
         className: [
             "link",
@@ -27783,7 +27784,7 @@ function Link(props) {
                 children: props.children
             }, void 0, false, {
                 fileName: "src/js/components/Link.js",
-                lineNumber: 5,
+                lineNumber: 8,
                 columnNumber: 7
             }, this),
             isExternal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
@@ -27800,7 +27801,7 @@ function Link(props) {
                         d: "M1 16.5L16.2277 1.27231"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 8,
+                        lineNumber: 11,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
@@ -27810,26 +27811,26 @@ function Link(props) {
                         y2: "1"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 9,
+                        lineNumber: 12,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
                         d: "M5.5 1L16.5 1"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 10,
+                        lineNumber: 13,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/components/Link.js",
-                lineNumber: 7,
+                lineNumber: 10,
                 columnNumber: 22
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/components/Link.js",
-        lineNumber: 4,
+        lineNumber: 7,
         columnNumber: 10
     }, this);
 }
@@ -35588,6 +35589,8 @@ var _link = require("./Link");
 var _linkDefault = parcelHelpers.interopDefault(_link);
 var _copy = require("./Copy");
 var _copyDefault = parcelHelpers.interopDefault(_copy);
+var _photo = require("./Photo");
+var _photoDefault = parcelHelpers.interopDefault(_photo);
 var _extractBlockContentJs = require("../utils/extractBlockContent.js");
 var _extractBlockContentJsDefault = parcelHelpers.interopDefault(_extractBlockContentJs);
 var _s = $RefreshSig$();
@@ -35639,12 +35642,12 @@ function Project(props) {
                     children: project.title
                 }, void 0, false, {
                     fileName: "src/js/components/Project.js",
-                    lineNumber: 56,
+                    lineNumber: 57,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 55,
+                lineNumber: 56,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35652,20 +35655,22 @@ function Project(props) {
                 children: [
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "project__company",
-                        children: [
-                            "With ",
-                            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _linkDefault.default), {
-                                href: project.company.url,
-                                children: project.company.name
-                            }, void 0, false, {
-                                fileName: "src/js/components/Project.js",
-                                lineNumber: 60,
-                                columnNumber: 46
-                            }, this)
-                        ]
-                    }, void 0, true, {
+                        children: project.company.name == "Own project" ? "Own project" : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
+                            children: [
+                                "With ",
+                                /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _linkDefault.default), {
+                                    href: project.company.url,
+                                    children: project.company.name
+                                }, void 0, false, {
+                                    fileName: "src/js/components/Project.js",
+                                    lineNumber: 62,
+                                    columnNumber: 75
+                                }, this)
+                            ]
+                        }, void 0, true)
+                    }, void 0, false, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 60,
+                        lineNumber: 61,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35676,7 +35681,7 @@ function Project(props) {
                                 children: startDate
                             }, void 0, false, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 62,
+                                lineNumber: 66,
                                 columnNumber: 11
                             }, this),
                             startDate !== endDate && endDate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
@@ -35687,84 +35692,61 @@ function Project(props) {
                                 ]
                             }, void 0, true, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 63,
+                                lineNumber: 67,
                                 columnNumber: 48
                             }, this) || /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
                                 dateTime: new Date().toLocaleDateString().replaceAll(".", "-"),
                                 children: " - Now"
                             }, void 0, false, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 63,
+                                lineNumber: 67,
                                 columnNumber: 96
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 61,
+                        lineNumber: 65,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
+                        fileName: "src/js/components/Project.js",
+                        lineNumber: 69,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
                         className: "project__technologies",
-                        children: project.technologies.map((technology)=>technology.title).join(", ")
+                        children: project.technologies
                     }, void 0, false, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 65,
+                        lineNumber: 70,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 59,
+                lineNumber: 60,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _copyDefault.default), {
                 children: (0, _extractBlockContentJsDefault.default)(project.description)
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 68,
+                lineNumber: 73,
                 columnNumber: 7
             }, this),
-            project.title.trim() !== "Brandfolks" && project.title.trim() !== "Brevis" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
-                className: "project__preview",
-                children: [
-                    project.slug.current !== "" && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("iframe", {
-                        className: "project__iframe",
-                        ref: iframe,
-                        src: project.slug.current,
-                        width: "860",
-                        height: "540",
-                        loading: "lazy"
-                    }, void 0, false, {
-                        fileName: "src/js/components/Project.js",
-                        lineNumber: 73,
-                        columnNumber: 43
-                    }, this),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _linkDefault.default), {
-                        href: project.url,
-                        children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _headingDefault.default), {
-                            className: "heading--2",
-                            tag: "span",
-                            children: "Click to open the live version"
-                        }, void 0, false, {
-                            fileName: "src/js/components/Project.js",
-                            lineNumber: 76,
-                            columnNumber: 13
-                        }, this)
-                    }, void 0, false, {
-                        fileName: "src/js/components/Project.js",
-                        lineNumber: 75,
-                        columnNumber: 11
-                    }, this)
-                ]
-            }, void 0, true, {
+            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
+                photo: project.photo,
+                width: "1200",
+                alt: `Screenshot of ${project.title}.`
+            }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 72,
-                columnNumber: 86
+                lineNumber: 77,
+                columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/components/Project.js",
-        lineNumber: 54,
+        lineNumber: 55,
         columnNumber: 21
     }, this);
 }
@@ -35779,7 +35761,7 @@ $RefreshReg$(_c, "Project");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Heading":"hjyBN","./Link":"2k0oQ","./Copy":"79BuC","../utils/extractBlockContent.js":"aXHyM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jEFKz":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Heading":"hjyBN","./Link":"2k0oQ","./Copy":"79BuC","../utils/extractBlockContent.js":"aXHyM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Photo":"5t7jE"}],"jEFKz":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$eb56 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

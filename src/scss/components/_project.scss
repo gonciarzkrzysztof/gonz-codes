@@ -23,49 +23,15 @@
     will-change: opacity;
   }
 
-  &__preview {
+  .photo {
     position: relative;
     grid-column: 1/-1;
     max-width: 100%;
-    aspect-ratio: 16/10;
+    aspect-ratio: 16/9;
     border-radius: 1rem;
     box-shadow: 0 1rem 3rem color-mix(in srgb, transparent, 10% currentColor);
     overflow: hidden;
     
-    .link {
-      --link-marker-width: 0;
-      align-items: center;
-      justify-content: center;
-      padding-right: 0;
-      background-color: color-mix(in srgb, transparent, 80% var(--background-color));
-      opacity: 0;
-  
-  
-      &:before {
-        content: none;
-      }
-  
-      @media (hover: hover) {
-        transition: opacity var(--duration-fast);
-  
-        &:hover,
-        &:focus {
-          opacity: 1;
-          // transform: none;
-        }
-      }
-    }
-  }
-
-  &__iframe,
-  &__preview .link {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .photo {
     &__img {
       transform-origin: top;
       animation: opacity, scale;

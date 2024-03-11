@@ -28,7 +28,7 @@ function Intro(props) {
         {intro.heading}
       </Heading>
 
-      <Photo photo={intro.photo} width="280" alt={`Photo of the author.`} />
+      <Photo photo={intro.photo} width="390" alt={`Photo of the author.`} />
 
       <Copy>
         {extractBlockContent(intro.copy)}

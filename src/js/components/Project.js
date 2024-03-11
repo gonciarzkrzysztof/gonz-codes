@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Heading from './Heading';
 import Link from './Link';
 import Copy from './Copy';
+import Photo from './Photo';
 import extractBlockContent from "../utils/extractBlockContent.js";
 
 function Project(props) {
@@ -56,27 +57,26 @@ function Project(props) {
       </Heading>
 
       <div className="project__info">
-        <p className="project__company">With <Link href={project.company.url}>{project.company.name}</Link></p>
+        <p className="project__company">
+          { project.company.name == 'Own project' 
+            ? 'Own project' 
+            : (<>With <Link href={project.company.url}>{project.company.name}</Link></>)
+          }
+        </p>
+
         <p className="project__time">
           <time dateTime={startDate}>{startDate}</time>
           {(startDate !== endDate && endDate && <time dateTime={endDate}> – {endDate}</time>) || <time dateTime={new Date().toLocaleDateString().replaceAll('.', '-')}> - Now</time>}
         </p>
-        <p className="project__technologies">{project.technologies.map(technology => technology.title).join(', ')}</p>
+        <br/>
+        <p className="project__technologies">{project.technologies }</p>
       </div>
 
       <Copy>
         {extractBlockContent(project.description)}
       </Copy>
 
-      { project.title.trim() !== 'Brandfolks' && project.title.trim() !== 'Brevis' && (
-        <div className="project__preview">
-          {project.slug.current !== '' && <iframe className="project__iframe" ref={iframe} src={project.slug.current} width="860" height="540" loading="lazy"></iframe>}
-
-          <Link href={project.url}>
-            <Heading className="heading--2" tag="span">Click to open the live version</Heading>
-          </Link>
-        </div>
-      )}
+      <Photo photo={project.photo} width="1200" alt={`Screenshot of ${ project.title }.`} />
     </article>
   )
 }

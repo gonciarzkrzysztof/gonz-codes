@@ -75,8 +75,9 @@ function Project(props) {
       <Copy>
         {extractBlockContent(project.description)}
       </Copy>
-
-      <Photo photo={project.photo} width="1200" alt={`Screenshot of ${ project.title }.`} />
+        
+      
+      { project.photo && (<Photo photo={project.photo} width="1200" alt={`Screenshot of ${ project.title }.`} />) }
     </article>
   )
 }

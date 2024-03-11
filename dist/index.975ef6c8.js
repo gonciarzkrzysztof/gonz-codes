@@ -35734,14 +35734,14 @@ function Project(props) {
                 lineNumber: 73,
                 columnNumber: 7
             }, this),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
+            project.photo && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
                 photo: project.photo,
                 width: "1200",
                 alt: `Screenshot of ${project.title}.`
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 77,
-                columnNumber: 7
+                lineNumber: 78,
+                columnNumber: 25
             }, this)
         ]
     }, void 0, true, {

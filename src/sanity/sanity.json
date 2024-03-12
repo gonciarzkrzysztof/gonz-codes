@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "gonz-codes"
-  },
   "api": {
     "projectId": "l2cr0gtr",
     "dataset": "production"
+  },
+  "project": {
+    "name": "gonz-codes"
   },
   "plugins": [
     "@sanity/base",

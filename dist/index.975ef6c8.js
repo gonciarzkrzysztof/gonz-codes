@@ -27614,6 +27614,7 @@ function Intro(props) {
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
                 photo: intro.photo,
                 width: "390",
+                height: "494",
                 alt: `Photo of the author.`
             }, void 0, false, {
                 fileName: "src/js/components/Intro.js",
@@ -27689,30 +27690,53 @@ parcelHelpers.defineInteropFlag(exports);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
+var _s = $RefreshSig$();
 function Photo(props) {
-    const { photo, alt, width } = props;
+    _s();
+    const { photo, alt, width, height, isMovingOnScroll } = props;
     const ratio = photo && photo.metadata.dimensions.aspectRatio;
-    const renderWidth = Math.round(width * 1.4);
+    const [isIntersecting, setIsIntersecting] = (0, _react.useState)(false);
+    const photoRef = (0, _react.useRef)();
+    (0, _react.useEffect)(()=>{
+        if (isMovingOnScroll) {
+            const observer = new IntersectionObserver((entries, observer)=>setIsIntersecting(entries[0].isIntersecting), {
+                threshold: 0
+            });
+            observer.observe(photoRef.current);
+        }
+    }, [
+        photoRef,
+        isIntersecting
+    ]);
+    window.addEventListener("scroll", ()=>{
+        if (isIntersecting) {
+            const translateY = -0.1 * (innerHeight - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height);
+            console.log(isIntersecting);
+            if (translateY) requestAnimationFrame(()=>photoRef.current.style.translate = `0 min(0px, ${translateY}px)`);
+        }
+    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("figure", {
         className: "photo",
         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("img", {
             className: "photo__img",
-            src: `${photo && photo.url}?w=${renderWidth}&auto=format`,
-            width: Math.round(renderWidth),
-            height: Math.round(renderWidth / ratio),
+            src: `${photo?.url}?w=${width * 2}&auto=format`,
+            width: width,
+            height: height,
             alt: alt,
+            ref: photoRef,
             loading: "lazy"
         }, void 0, false, {
             fileName: "src/js/components/Photo.js",
-            lineNumber: 11,
+            lineNumber: 31,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/Photo.js",
-        lineNumber: 10,
+        lineNumber: 30,
         columnNumber: 10
     }, this);
 }
+_s(Photo, "LCmMBnu0siWLCWpTujpM9dXTmas=");
 _c = Photo;
 exports.default = Photo;
 var _c;
@@ -27776,7 +27800,7 @@ function Link(props) {
             props.className
         ].join(" "),
         href: props.href,
-        target: isExternal && "_blank",
+        target: isExternal ? "_blank" : "false",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 className: "link__label",
@@ -35517,15 +35541,7 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _project = require("./Project");
 var _projectDefault = parcelHelpers.interopDefault(_project);
-var _s = $RefreshSig$();
 function Projects(props) {
-    _s();
-    const [scrollY, setScrollY] = (0, _react.useState)(window.scrollY);
-    (0, _react.useEffect)(()=>{
-        window.addEventListener("scroll", ()=>{
-            setScrollY(window.scrollY);
-        });
-    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("section", {
         className: "projects",
         children: [
@@ -35534,7 +35550,7 @@ function Projects(props) {
                 children: "Projects"
             }, void 0, false, {
                 fileName: "src/js/components/Projects.js",
-                lineNumber: 11,
+                lineNumber: 5,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35544,22 +35560,21 @@ function Projects(props) {
                         project: project
                     }, project.title, false, {
                         fileName: "src/js/components/Projects.js",
-                        lineNumber: 14,
+                        lineNumber: 8,
                         columnNumber: 40
                     }, this))
             }, void 0, false, {
                 fileName: "src/js/components/Projects.js",
-                lineNumber: 13,
+                lineNumber: 7,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/components/Projects.js",
-        lineNumber: 10,
+        lineNumber: 4,
         columnNumber: 10
     }, this);
 }
-_s(Projects, "QHEGkLU6L9y68na9bjqcyk571Yo=");
 _c = Projects;
 exports.default = Projects;
 var _c;
@@ -35592,42 +35607,13 @@ var _photo = require("./Photo");
 var _photoDefault = parcelHelpers.interopDefault(_photo);
 var _extractBlockContentJs = require("../utils/extractBlockContent.js");
 var _extractBlockContentJsDefault = parcelHelpers.interopDefault(_extractBlockContentJs);
-var _s = $RefreshSig$();
 function Project(props) {
-    _s();
     const { project } = props;
-    // const [isIntersecting, setIsIntersecting] = useState(false);
-    const iframe = (0, _react.useRef)();
     for(let key in project.time){
         let date = project.time[key];
         project.time[key] = new Date(Date.parse(date)).getFullYear();
     }
     const { startDate, endDate } = project.time;
-    // if (isIntersecting) {
-    //   const threshold = .2 * (innerHeight  - iframe.current.getBoundingClientRect().top - .5 * iframe.current.getBoundingClientRect().height) /* + iframe.current.contentWindow.scrollY */;
-    //   if (threshold) {
-    //     requestAnimationFrame(() => iframe.current.contentWindow.scrollTo(0, threshold));
-    //   }
-    // }
-    // useEffect(() => {
-    //   const observer = new IntersectionObserver(
-    //     (entries, observer) => setIsIntersecting(entries[0].isIntersecting),
-    //     { threshold: 0 }
-    //   );
-    //   if (iframe.current) {
-    //     observer.observe(iframe.current);
-    //     const styleElement = iframe.current.contentDocument.createElement('style')
-    //     styleElement.innerText = 'a { cursor: not-allowed!important; }';
-    //     const aElements = [...iframe.current.contentDocument.querySelectorAll('a')];
-    //     aElements.map(a => a.addEventListener('click', e => e.preventDefault()));
-    //     iframe.current.contentDocument.head?.appendChild(styleElement);
-    //   }
-    //   return () => {
-    //     if (iframe.current) {
-    //       observer.unobserve(iframe.current);
-    //     }
-    //   }
-    // }, [iframe.current, isIntersecting]);
     return project && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("article", {
         id: project.slug.current,
         className: `project ${props.className || ""}`,
@@ -35641,12 +35627,12 @@ function Project(props) {
                     children: project.title
                 }, void 0, false, {
                     fileName: "src/js/components/Project.js",
-                    lineNumber: 57,
+                    lineNumber: 21,
                     columnNumber: 9
                 }, this)
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 56,
+                lineNumber: 20,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
@@ -35662,14 +35648,14 @@ function Project(props) {
                                     children: project.company.name
                                 }, void 0, false, {
                                     fileName: "src/js/components/Project.js",
-                                    lineNumber: 62,
+                                    lineNumber: 26,
                                     columnNumber: 75
                                 }, this)
                             ]
                         }, void 0, true)
                     }, void 0, false, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 61,
+                        lineNumber: 25,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35680,7 +35666,7 @@ function Project(props) {
                                 children: startDate
                             }, void 0, false, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 66,
+                                lineNumber: 30,
                                 columnNumber: 11
                             }, this),
                             startDate !== endDate && endDate && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
@@ -35691,25 +35677,25 @@ function Project(props) {
                                 ]
                             }, void 0, true, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 67,
+                                lineNumber: 31,
                                 columnNumber: 48
                             }, this) || /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("time", {
                                 dateTime: new Date().toLocaleDateString().replaceAll(".", "-"),
                                 children: " - Now"
                             }, void 0, false, {
                                 fileName: "src/js/components/Project.js",
-                                lineNumber: 67,
+                                lineNumber: 31,
                                 columnNumber: 96
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 65,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, void 0, false, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 69,
+                        lineNumber: 33,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
@@ -35717,39 +35703,40 @@ function Project(props) {
                         children: project.technologies
                     }, void 0, false, {
                         fileName: "src/js/components/Project.js",
-                        lineNumber: 70,
+                        lineNumber: 34,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 60,
+                lineNumber: 24,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _copyDefault.default), {
                 children: (0, _extractBlockContentJsDefault.default)(project.description)
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 73,
+                lineNumber: 37,
                 columnNumber: 7
             }, this),
             project.photo && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _photoDefault.default), {
                 photo: project.photo,
                 width: "1200",
-                alt: `Screenshot of ${project.title}.`
+                height: "965",
+                alt: "",
+                isMovingOnScroll: true
             }, void 0, false, {
                 fileName: "src/js/components/Project.js",
-                lineNumber: 78,
+                lineNumber: 42,
                 columnNumber: 25
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/components/Project.js",
-        lineNumber: 55,
+        lineNumber: 19,
         columnNumber: 21
     }, this);
 }
-_s(Project, "yeoAKYzwHGpzlfLaV/1uTwoJwfI=");
 _c = Project;
 exports.default = Project;
 var _c;

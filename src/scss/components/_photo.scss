@@ -2,4 +2,8 @@
   background-color: var(--color-dimmed);
   line-height: 0;
   overflow: hidden;
+
+  &__img {
+    width: 100%;
+  }
 }

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import Heading from './Heading';
 import Link from './Link';
 import Copy from './Copy';
@@ -7,8 +7,6 @@ import extractBlockContent from "../utils/extractBlockContent.js";
 
 function Project(props) {
   const { project } = props;
-  // const [isIntersecting, setIsIntersecting] = useState(false);
-  const iframe = useRef();
 
   for (let key in project.time) {
     let date = project.time[key];
@@ -16,39 +14,6 @@ function Project(props) {
   }
 
   const { startDate, endDate } = project.time;
-
-  // if (isIntersecting) {
-  //   const threshold = .2 * (innerHeight  - iframe.current.getBoundingClientRect().top - .5 * iframe.current.getBoundingClientRect().height) /* + iframe.current.contentWindow.scrollY */;
-
-  //   if (threshold) {
-  //     requestAnimationFrame(() => iframe.current.contentWindow.scrollTo(0, threshold));
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   const observer = new IntersectionObserver(
-  //     (entries, observer) => setIsIntersecting(entries[0].isIntersecting),
-  //     { threshold: 0 }
-  //   );
-
-  //   if (iframe.current) {
-  //     observer.observe(iframe.current);
-
-  //     const styleElement = iframe.current.contentDocument.createElement('style')
-  //     styleElement.innerText = 'a { cursor: not-allowed!important; }';
-  //     const aElements = [...iframe.current.contentDocument.querySelectorAll('a')];
-
-  //     aElements.map(a => a.addEventListener('click', e => e.preventDefault()));
-
-  //     iframe.current.contentDocument.head?.appendChild(styleElement);
-  //   }
-
-  //   return () => {
-  //     if (iframe.current) {
-  //       observer.unobserve(iframe.current);
-  //     }
-  //   }
-  // }, [iframe.current, isIntersecting]);
 
   return project && (
     <article id={project.slug.current} className={`project ${props.className || ''}`}>
@@ -77,7 +42,7 @@ function Project(props) {
       </Copy>
         
       
-      { project.photo && (<Photo photo={project.photo} width="1200" alt={`Screenshot of ${ project.title }.`} />) }
+      { project.photo && (<Photo photo={project.photo} width="1200" height="965" alt="" isMovingOnScroll={true} />) }
     </article>
   )
 }

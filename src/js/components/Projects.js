@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import Project from './Project';
 
 
 function Projects(props) {
-  const [scrollY, setScrollY] = useState(window.scrollY);
-
-  useEffect(() => {
-    window.addEventListener("scroll", () => {
-      setScrollY(window.scrollY);
-    });
-  });
-
-
   return (
     <section className="projects">
       <h2 className="visually-hidden">Projects</h2>

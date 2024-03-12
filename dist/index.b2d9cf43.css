@@ -561,6 +561,10 @@ button {
   overflow: hidden;
 }
 
+.photo__img {
+  width: 100%;
+}
+
 .project {
   --animation-delay: calc(var(--duration-fast)  + var(--duration-default));
 }

@@ -6,7 +6,7 @@ function Link(props) {
   { isExternal }
   
   return (
-    <a className={ [ 'link', props.className ].join(' ') } href={ props.href } target={isExternal && '_blank'}>
+    <a className={ [ 'link', props.className ].join(' ') } href={ props.href } target={isExternal ? '_blank' : 'false'}>
       <span className="link__label">{ props.children }</span>
 
       { isExternal && (

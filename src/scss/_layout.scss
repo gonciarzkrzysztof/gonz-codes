@@ -29,7 +29,8 @@
     grid-template-columns: var(--layout-narrow-part) 1fr;
 
     @media #{$breakpoint-tablet} {
-      grid-template-columns: auto;
+      grid-template-columns: 1fr;
+      grid-auto-columns: 2fr;
     }
   }
 }

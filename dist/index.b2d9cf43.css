@@ -202,7 +202,8 @@ button {
 
 @media screen and (width <= 1023px) {
   .layout--leading-narrow {
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
+    grid-auto-columns: 2fr;
   }
 }
 

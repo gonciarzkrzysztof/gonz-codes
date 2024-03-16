@@ -27793,21 +27793,20 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 function Link(props) {
     const isExternal = new URL(props.href, location.origin).origin !== location.origin;
-    isExternal;
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
         className: [
             "link",
             props.className
         ].join(" "),
         href: props.href,
-        target: isExternal ? "_blank" : "false",
+        target: isExternal && "_blank",
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                 className: "link__label",
                 children: props.children
             }, void 0, false, {
                 fileName: "src/js/components/Link.js",
-                lineNumber: 8,
+                lineNumber: 5,
                 columnNumber: 7
             }, this),
             isExternal && /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("svg", {
@@ -27824,7 +27823,7 @@ function Link(props) {
                         d: "M1 16.5L16.2277 1.27231"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 11,
+                        lineNumber: 8,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("line", {
@@ -27834,26 +27833,26 @@ function Link(props) {
                         y2: "1"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 12,
+                        lineNumber: 9,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("path", {
                         d: "M5.5 1L16.5 1"
                     }, void 0, false, {
                         fileName: "src/js/components/Link.js",
-                        lineNumber: 13,
+                        lineNumber: 10,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/js/components/Link.js",
-                lineNumber: 10,
+                lineNumber: 7,
                 columnNumber: 22
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/js/components/Link.js",
-        lineNumber: 7,
+        lineNumber: 4,
         columnNumber: 10
     }, this);
 }

@@ -2,11 +2,9 @@ import React from "react";
 
 function Link(props) {
   const isExternal = new URL(props.href, location.origin).origin !== location.origin;
-
-  { isExternal }
   
   return (
-    <a className={ [ 'link', props.className ].join(' ') } href={ props.href } target={isExternal ? '_blank' : 'false'}>
+    <a className={ [ 'link', props.className ].join(' ') } href={ props.href } target={ isExternal && '_blank' }>
       <span className="link__label">{ props.children }</span>
 
       { isExternal && (

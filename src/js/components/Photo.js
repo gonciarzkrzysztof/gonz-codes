@@ -21,12 +21,13 @@ function Photo(props) {
 
   window.addEventListener("scroll", () => {
     if (isIntersecting) {
-      const translateY = -.1 * (innerHeight  - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height);
+      const change = innerHeight  - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
+      const translateY = -.00011 * change * change;
       
       console.log(isIntersecting);
 
       if (translateY) {
-        requestAnimationFrame(() => photoRef.current.style.translate = `0 min(0px, ${translateY}px)`);
+        requestAnimationFrame(() => photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);
       }
     }
   });

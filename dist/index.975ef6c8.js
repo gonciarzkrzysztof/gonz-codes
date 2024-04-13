@@ -27710,9 +27710,10 @@ function Photo(props) {
     ]);
     window.addEventListener("scroll", ()=>{
         if (isIntersecting) {
-            const translateY = -0.1 * (innerHeight - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height);
+            const change = innerHeight - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
+            const translateY = -0.00011 * change * change;
             console.log(isIntersecting);
-            if (translateY) requestAnimationFrame(()=>photoRef.current.style.translate = `0 min(0px, ${translateY}px)`);
+            if (translateY) requestAnimationFrame(()=>photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);
         }
     });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("figure", {
@@ -27727,12 +27728,12 @@ function Photo(props) {
             loading: "lazy"
         }, void 0, false, {
             fileName: "src/js/components/Photo.js",
-            lineNumber: 31,
+            lineNumber: 32,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/Photo.js",
-        lineNumber: 30,
+        lineNumber: 31,
         columnNumber: 10
     }, this);
 }
@@ -35746,7 +35747,7 @@ $RefreshReg$(_c, "Project");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Heading":"hjyBN","./Link":"2k0oQ","./Copy":"79BuC","../utils/extractBlockContent.js":"aXHyM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","./Photo":"5t7jE"}],"jEFKz":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","./Heading":"hjyBN","./Link":"2k0oQ","./Copy":"79BuC","./Photo":"5t7jE","../utils/extractBlockContent.js":"aXHyM","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"jEFKz":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$eb56 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

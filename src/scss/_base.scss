@@ -24,8 +24,9 @@
 
   --color-black: #000000;
   --color-white: #ffffff;
-  --color-dimmed: #80808010;
   --color-dark: #2b2b2b;
+  --color-light: #d4d4d4;
+  --color-dimmed: #80808010;
 
   --duration-blink: 200ms;
   --duration-fast: 400ms;
@@ -51,7 +52,8 @@
 
 html {
   --background-color: var(--color-white);
-  --color: var(--color-black);
+  --color: var(--color-dark);
+  --color-strong: var(--color-black);
 
   background-color: var(--background-color);
   color: var(--color);
@@ -63,7 +65,8 @@ html {
 
   @media (prefers-color-scheme: dark) {
     --background-color: var(--color-dark);
-    --color: var(--color-white);
+    --color: var(--color-light);
+    --color-strong: var(--color-white);
   }
 }
 

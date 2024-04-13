@@ -17,6 +17,7 @@
 
     width: var(--width);
     animation: translateX 10s linear infinite;
+    color: var(--color-strong);
     font-weight: bold;
     letter-spacing: .05em;
     text-shadow: unquote($text-shadow);

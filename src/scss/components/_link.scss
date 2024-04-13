@@ -8,7 +8,7 @@
   // margin-left: calc(-1 * var(--link-marker-width));
   // padding-left: var(--link-marker-width);
   padding-right: var(--link-marker-width);
-  color: inherit;
+  color: var(--color-strong);
   overflow: hidden;
 
   @media (hover: hover) {

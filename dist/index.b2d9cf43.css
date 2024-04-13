@@ -91,8 +91,9 @@ table {
   --line-height-heading-2: 1.2;
   --color-black: #000;
   --color-white: #fff;
-  --color-dimmed: #80808010;
   --color-dark: #2b2b2b;
+  --color-light: #d4d4d4;
+  --color-dimmed: #80808010;
   --duration-blink: .2s;
   --duration-fast: .4s;
   --duration-default: .8s;
@@ -115,7 +116,8 @@ table {
 
 html {
   --background-color: var(--color-white);
-  --color: var(--color-black);
+  --color: var(--color-dark);
+  --color-strong: var(--color-black);
   background-color: var(--background-color);
   color: var(--color);
   -webkit-font-smoothing: antialiased;
@@ -127,7 +129,8 @@ html {
 @media (prefers-color-scheme: dark) {
   html {
     --background-color: var(--color-dark);
-    --color: var(--color-white);
+    --color: var(--color-light);
+    --color-strong: var(--color-white);
   }
 }
 
@@ -208,6 +211,7 @@ button {
 }
 
 [class*="heading--"] {
+  color: var(--color-strong);
   font-weight: bold;
 }
 
@@ -362,6 +366,7 @@ button {
   --width: 50rem;
   --animation-translateX-from: 100%;
   width: var(--width);
+  color: var(--color-strong);
   letter-spacing: .05em;
   text-shadow: calc((-4) * var(--width)) 0 currentColor, calc((-3) * var(--width)) 0 currentColor, calc((-2) * var(--width)) 0 currentColor, calc((-1) * var(--width)) 0 currentColor, calc((1) * var(--width)) 0 currentColor, calc((2) * var(--width)) 0 currentColor, calc((3) * var(--width)) 0 currentColor, calc((4) * var(--width)) 0 currentColor, calc((5) * var(--width)) 0 currentColor;
   text-transform: uppercase;
@@ -487,7 +492,7 @@ button {
   --link-translateX: var(--link-marker-width);
   --link-translateY: 0;
   padding-right: var(--link-marker-width);
-  color: inherit;
+  color: var(--color-strong);
   display: inline-flex;
   position: relative;
   overflow: hidden;

@@ -3,21 +3,16 @@ import Link from './Link';
 
 function Nav(props) {
   const navRef = useRef();
-  const shifts = Array(props.entries.length).fill(0)
   const offsetTop = navRef.current?.getBoundingClientRect().top + window.scrollY;
-  const pageHeight = document.documentElement.scrollHeight;
+  
 
   window.addEventListener("scroll", () => {
-      // const change = innerHeight  - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
-      // const translateY = -.00011 * change * change;
-      
-    console.log(shifts.map((shift, index) => {
-      return window.scrollY - (index / shifts.length) * (pageHeight - offsetTop)
-    }))
+    const pageHeight = document.documentElement.scrollHeight;
+    const distance = pageHeight - offsetTop;
 
-      // if (translateY) {
-      //   requestAnimationFrame(() => photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);
-      // }
+    const factor = props.entries.length * ((window.scrollY - offsetTop) / distance);
+
+    requestAnimationFrame(() => navRef.current.style.setProperty('--nav-factor', `${factor}`));
   });
 
   return (

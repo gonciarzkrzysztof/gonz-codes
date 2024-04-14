@@ -35496,18 +35496,12 @@ var _s = $RefreshSig$();
 function Nav(props) {
     _s();
     const navRef = (0, _react.useRef)();
-    const shifts = Array(props.entries.length).fill(0);
     const offsetTop = navRef.current?.getBoundingClientRect().top + window.scrollY;
-    const pageHeight = document.documentElement.scrollHeight;
     window.addEventListener("scroll", ()=>{
-        // const change = innerHeight  - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
-        // const translateY = -.00011 * change * change;
-        console.log(shifts.map((shift, index)=>{
-            return window.scrollY - index / shifts.length * (pageHeight - offsetTop);
-        }));
-    // if (translateY) {
-    //   requestAnimationFrame(() => photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);
-    // }
+        const pageHeight = document.documentElement.scrollHeight;
+        const distance = pageHeight - offsetTop;
+        const factor = props.entries.length * ((window.scrollY - offsetTop) / distance);
+        requestAnimationFrame(()=>navRef.current.style.setProperty("--nav-factor", `${factor}`));
     });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
         className: "nav",
@@ -35519,13 +35513,13 @@ function Nav(props) {
                 children: title
             }, slug.current || slug, false, {
                 fileName: "src/js/components/Nav.js",
-                lineNumber: 26,
+                lineNumber: 18,
                 columnNumber: 14
             }, this);
         })
     }, void 0, false, {
         fileName: "src/js/components/Nav.js",
-        lineNumber: 20,
+        lineNumber: 12,
         columnNumber: 10
     }, this);
 }

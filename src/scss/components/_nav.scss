@@ -14,4 +14,17 @@
     @include visually-hidden;
     grid-area: auto;
   }
+
+  .link {
+    translate: calc(
+      sin(clamp(0, 2.5 * (var(--nav-factor) - var(--nav-link-index)) + 1.5, 3.14159)) * var(--link-marker-width)
+    ) 0;
+    will-change: translate;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        --nav-link-index: #{$i - 1};
+      }
+    }
+  }
 }

@@ -24,7 +24,6 @@ function Photo(props) {
       const change = innerHeight  - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
       const translateY = -.00011 * change * change;
       
-      console.log(isIntersecting);
 
       if (translateY) {
         requestAnimationFrame(() => photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);

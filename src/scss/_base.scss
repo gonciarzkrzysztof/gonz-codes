@@ -61,7 +61,7 @@ html {
   font-size: calc(.5 * 62.5% + .5 * (100vw / 144));
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  scroll-padding: var(--gap-vertical);
+  scroll-padding: calc(2 * var(--gap-vertical));
 
   @media (prefers-color-scheme: dark) {
     --background-color: var(--color-dark);

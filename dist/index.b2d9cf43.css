@@ -122,7 +122,7 @@ html {
   color: var(--color);
   -webkit-font-smoothing: antialiased;
   scroll-behavior: smooth;
-  scroll-padding: var(--gap-vertical);
+  scroll-padding: calc(2 * var(--gap-vertical));
   font-size: calc(31.25% + .347222vw);
 }
 
@@ -558,6 +558,51 @@ button {
     position: absolute;
     overflow: hidden;
   }
+}
+
+.nav .link {
+  translate: calc(sin(clamp(0, 2.5 * (var(--nav-factor)  - var(--nav-link-index))  + 1.5, 3.14159)) * var(--link-marker-width)) 0;
+  will-change: translate;
+}
+
+.nav .link:first-child {
+  --nav-link-index: 0;
+}
+
+.nav .link:nth-child(2) {
+  --nav-link-index: 1;
+}
+
+.nav .link:nth-child(3) {
+  --nav-link-index: 2;
+}
+
+.nav .link:nth-child(4) {
+  --nav-link-index: 3;
+}
+
+.nav .link:nth-child(5) {
+  --nav-link-index: 4;
+}
+
+.nav .link:nth-child(6) {
+  --nav-link-index: 5;
+}
+
+.nav .link:nth-child(7) {
+  --nav-link-index: 6;
+}
+
+.nav .link:nth-child(8) {
+  --nav-link-index: 7;
+}
+
+.nav .link:nth-child(9) {
+  --nav-link-index: 8;
+}
+
+.nav .link:nth-child(10) {
+  --nav-link-index: 9;
 }
 
 .photo {

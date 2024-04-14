@@ -27712,7 +27712,6 @@ function Photo(props) {
         if (isIntersecting) {
             const change = innerHeight - photoRef.current.getBoundingClientRect().top - .25 * photoRef.current.getBoundingClientRect().height;
             const translateY = -0.00011 * change * change;
-            console.log(isIntersecting);
             if (translateY) requestAnimationFrame(()=>photoRef.current.style.translate = `0 clamp(-50%, ${translateY}px, 0px)`);
         }
     });
@@ -27728,12 +27727,12 @@ function Photo(props) {
             loading: "lazy"
         }, void 0, false, {
             fileName: "src/js/components/Photo.js",
-            lineNumber: 32,
+            lineNumber: 31,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "src/js/components/Photo.js",
-        lineNumber: 31,
+        lineNumber: 30,
         columnNumber: 10
     }, this);
 }
@@ -35493,30 +35492,38 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _link = require("./Link");
 var _linkDefault = parcelHelpers.interopDefault(_link);
+var _s = $RefreshSig$();
 function Nav(props) {
+    _s();
+    const navRef = (0, _react.useRef)();
+    const offsetTop = navRef.current?.getBoundingClientRect().top + window.scrollY;
+    window.addEventListener("scroll", ()=>{
+        const pageHeight = document.documentElement.scrollHeight;
+        const distance = pageHeight - offsetTop;
+        const factor = props.entries.length * ((window.scrollY - offsetTop) / distance);
+        requestAnimationFrame(()=>navRef.current.style.setProperty("--nav-factor", `${factor}`));
+    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("nav", {
         className: "nav",
-        children: props.entries.map((entry)=>{
+        ref: navRef,
+        children: props.entries.map((entry, index)=>{
             const { title, slug } = entry;
-            return entry !== "<br/>" ? /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _linkDefault.default), {
+            return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _linkDefault.default), {
                 href: `#${slug.current || slug}`,
                 children: title
             }, slug.current || slug, false, {
                 fileName: "src/js/components/Nav.js",
-                lineNumber: 10,
-                columnNumber: 34
-            }, this) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("br", {}, "br", false, {
-                fileName: "src/js/components/Nav.js",
-                lineNumber: 10,
-                columnNumber: 118
+                lineNumber: 18,
+                columnNumber: 14
             }, this);
         })
     }, void 0, false, {
         fileName: "src/js/components/Nav.js",
-        lineNumber: 4,
+        lineNumber: 12,
         columnNumber: 10
     }, this);
 }
+_s(Nav, "rHA/vuAAXoiUfw/iUIRJEHlIXI0=");
 _c = Nav;
 exports.default = Nav;
 var _c;
